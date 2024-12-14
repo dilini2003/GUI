@@ -1,5 +1,3 @@
-# GUI
- Online Book Store 
 # Online Book Store
 
 ![Online Book Store](https://img.shields.io/badge/project-online%20book%20store-blue?style=for-the-badge) ![Technologies](https://img.shields.io/badge/tech-stack-green?style=for-the-badge)
@@ -95,16 +93,6 @@ Open the `admin/` folder in Visual Studio and run the project.
 | `users`       | Stores user details     |
 | `books`       | Stores book inventory   |
 | `orders`      | Tracks customer orders  |
-
----
-
-## 📸 Screenshots
-
-### Web Application
-![Web Application Screenshot](https://via.placeholder.com/800x400)
-
-### Desktop Application
-![Desktop Application Screenshot](https://via.placeholder.com/800x400)
 
 ---
 

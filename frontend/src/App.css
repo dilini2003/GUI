@@ -1,38 +1,135 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-family: "Poppins",sans-serif;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+  transition: width none;
+  text-decoration: none;
+}
+
+:root{
+  --green:#2eeea2;
+  --dark-color:#12e590;
+  --black:#444;
+  --light-color:#666;
+  --border:0.1rem solid rgba(0,0,0,0.1);
+  --border-hover:0.1rem solid var(var(--black));
+  --box-shodow:0 0.5rem 1rem rgba(0,0,0,0.1);
+}
+
+html{
+  font-size: 62.5%;
+  overflow: hidden;
+  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar{
+  width: 1 rem;
+}
+html::-webkit-scrollbar-track{
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+  background: var(--black);
+}
+
+.header .header_one{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 9%;
+  background: #ffffff;
+}
+.header .header_one .logo{
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--green);
+}
+.header .header_one .search-form{
+  width: 50rem;
+  height: 5rem;
+  border: var(--border);
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+.header .header_one .search-form input{
+  font-size: 1.6rem;
+  padding: 0 1.2rem;
+  height: 100%;
+  width: 100%;
+  text-transform: none;
+  color: var(--black);
+  border: var(--border);
+}
+.header .header_one .search-form label{
+  font-size: 2.5rem;
+  padding: 1.5rem;
+  line-height: 20px;
+  color: var(--black);
+  cursor: pointer;
+}
+.header .header_one .search-form label:hover{
+  color: var(--green);
+}
+.header .header_one .icons{
+  display: flex;
+  align-items: center;
+}
+.header .header_one .icons div,
+.header .header_one .icons a{
+  font-size: 2.5rem;
+  margin-left: 1.5rem;
+  color: var(--black);
+  cursor: pointer;
+}
+.header .header_one .icons div:hover,
+.header .header_one .icons a:hover{
+  color: var(--green);
+}
+#search-btn{
+  display: none;
+}
+.header .header_two {
+  background: var(--green);
+}
+.header .header_two .navbar{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header .header_two .navbar a{
+  color: #ffffff;
+  display: inline-block;
+  padding: 1.2rem;
+  font-size: 1.7rem;
+}
+.header .header_two .navbar a:hover{
+  background: var(--dark-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* bottom navbar */
+.bottom-navbar{
+  text-align: center;
+  background: var(--green);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1 rem 0;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.bottom-navbar a{
+  font-size: 2.5rem;
+  padding: 1rem 2rem;
+  color: #ffffff;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bottom-navbar a:hover{
+  background: var(--dark-color);
 }

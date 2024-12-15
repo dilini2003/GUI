@@ -123,6 +123,7 @@ html::-webkit-scrollbar-thumb{
   left: 0;
   right: 0;
   z-index: 1000;
+  display: none;
   padding: 1 rem 0;
 }
 .bottom-navbar a{
@@ -132,4 +133,134 @@ html::-webkit-scrollbar-thumb{
 }
 .bottom-navbar a:hover{
   background: var(--dark-color);
+}
+
+@media( max-width:991px){
+  html{
+    font-size: 55%;
+  }
+  .header .header_one{
+    padding: 2rem;
+  }
+}
+
+@media(max-width:768px){
+  html{
+    scroll-padding-top: 0;
+  }
+  body{
+    padding-bottom: 6rem;
+  }
+  .header .header_two{
+    display: none;
+  }
+  .header .header_one{
+    box-shadow: var(--box-shodow);
+    position: relative;
+  }
+  .header .header_one .search-form{
+    display: none;
+  }
+  #search-btn{
+    display: inline-block;
+  }
+  .bottom-navbar{
+    display:inline-block ;
+  }
+}
+
+@media(max-width:450px){
+  html{
+    font-size: 50%;
+  }
+}
+
+
+/*login form*/
+.login-form-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  right: -105%;
+  z-index: 10000;
+  height: 100%;
+  width:100%;
+}
+.login-form{
+  right: 0;
+}
+.login-form-container form{
+  background: #ffffff;
+  border: var(--border);
+  width: 40rem;
+  padding: 2rem;
+  box-shadow: var(--box-shodow);
+  border-radius: 0.5rem;
+  margin: 2rem;
+}
+.login-form-container form h3{
+  font-size: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.login-form-container form span{
+  display: flex;
+  font-size: 1.5rem;
+  
+}
+.login-form-container input{
+  font-size: 1.5rem;
+  margin-top: 0.7rem;
+}
+.login-form-container form .check-box{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+.login-form-container form .check-box label{
+  font-size: 1.4rem;
+  color: var(--black);
+  padding-top: 0.8rem;
+}
+
+.login-form-container form .btn{
+  text-align: center;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+.btn{
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.9rem 3rem;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  background: var(--green);
+  border: 1px solid var(--border);
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+.btn:hover{
+  background: var(--dark-color);
+}
+.login-form-container form p{
+  padding-top: 0.8rem;
+  color: var(--light-color);
+  font-size: 1.5rem;
+}
+.login-form-container form p a{
+  text-decoration: underline;
+  color:var(--green);
+}
+.login-form-container #close-login-btn{
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  font-size: 5rem;
+  cursor: pointer;
 }

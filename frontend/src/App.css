@@ -264,3 +264,54 @@ html::-webkit-scrollbar-thumb{
   font-size: 5rem;
   cursor: pointer;
 }
+
+
+
+section{
+  padding:3rem 9%;
+}
+@media(max-width:991px){
+  section{
+    padding: 3rem 2rem;
+  }
+}
+
+.home{
+  background:url(../public/images/bannerbg.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.home .row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.home .row .content{
+  flex: 1 1 42rem;
+}
+.home .row .content h3{
+  color: var(--black);
+  font-size: 4.5rem;
+}
+.home .row .content p{
+  color: var(--light-color);
+  font-size: 1.4rem;
+  line-height: 2;
+  padding: 1rem 0;
+}
+.home .swiper{
+  flex: 1 1 42rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+.home .book-list .swiper-slide img{
+  height: 25rem;
+}
+.home .book-list .swiper-slide:hover img{
+  transform: scale(0.9);
+}
+.home .row .swiper .stand{
+  width :100%;
+  margin-top: -2rem;
+}

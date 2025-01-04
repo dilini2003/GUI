@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from './Navbar';
 
+import { FaPlane, FaLock, FaHeadset, FaSearch, FaHeart, FaEye } from "react-icons/fa";
+
 import {Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import {Autoplay} from 'swiper/modules';
@@ -20,6 +22,29 @@ const Home = ()=>{
         },
         loop:true,
     };
+    const swiperOptionsTwo ={
+        breakpoints:{
+        0:{
+            slidesPerView:1,
+            spaceBetween:10,
+        },
+        450:{
+            slidesPerView:2,
+            spaceBetween:10,
+        },
+        768:{
+            slidesPerView:3,
+            spaceBetween:10,
+        },
+        1024:{
+            slidesPerView:4,
+        },
+        },
+        loop:true,
+        centeredSlides:true,
+        spaceBetween:10,
+    };
+
     return(
         <div className='home-container'>
              <Navbar/>
@@ -46,22 +71,22 @@ const Home = ()=>{
                 className="book-list"
                 {...swiperOptionsOne}>
                     <a href="\#" className='swiper-slide'>
-                    <SwiperSlide><img src="images/book1.jpg" alt=""/></SwiperSlide>
+                    <SwiperSlide><img src="images/book01.jfif" alt=""/></SwiperSlide>
                     </a>
                     <a href="\#" className='swiper-slide'>
-                    <SwiperSlide><img src="images/book2.jpg" alt=""/></SwiperSlide>
+                    <SwiperSlide><img src="images/book02.jfif" alt=""/></SwiperSlide>
                     </a>
                     <a href="\#" className='swiper-slide'>
-                    <SwiperSlide><img src="images/book3.jpg" alt=""/></SwiperSlide>
+                    <SwiperSlide><img src="images/book03.jfif" alt=""/></SwiperSlide>
                     </a>
                     <a href="\#" className='swiper-slide'>
-                    <SwiperSlide><img src="images/book4.jpg" alt=""/></SwiperSlide>
+                    <SwiperSlide><img src="images/book04.jpg" alt=""/></SwiperSlide>
                     </a>
                     <a href="\#" className='swiper-slide'>
-                    <SwiperSlide><img src="images/book5.jpg" alt=""/></SwiperSlide>
+                    <SwiperSlide><img src="images/book05.jfif" alt=""/></SwiperSlide>
                     </a>
                     <a href="\#" className='swiper-slide'>
-                    <SwiperSlide><img src="images/book6.jpg" alt=""/></SwiperSlide>
+                    <SwiperSlide><img src="images/book06.jfif" alt=""/></SwiperSlide>
                     </a>
                 </Swiper>
                 <img className='stand' src="image/stand.jpg" alt=""/>
@@ -69,6 +94,214 @@ const Home = ()=>{
             </div>
         </section>
 
+        <section className='icons-container'>
+            <div className="icons">
+                <i><FaPlane /></i>
+                <div className="content">
+                    <h3>over payment</h3>
+                    <p>over payment $100</p>
+                </div>
+            </div>
+            <div className="icons">
+                <i><FaLock /></i>
+                <div className="content">
+                    <h3>over payment</h3>
+                    <p>over payment $100</p>
+                </div>
+            </div>
+            <div className="icons">
+                <i><FaHeadset /></i>
+                <div className="content">
+                    <h3>over payment</h3>
+                    <p>over payment $100</p>
+                </div>
+            </div>
+
+        </section>
+        <section className='featured' id='featured'>
+            <div className="heading"><span>featured books</span></div>
+            <div className="swiper">
+                <Swiper 
+                watchSlidesProgress={true}
+                autoplay={{
+                    delay:3500,
+                    disableOnInteraction:false
+                }}
+                modules={[Autoplay]} className="featured-slider"
+                {...swiperOptionsTwo} >
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book01.jfif" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book02.jfif" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book03.jfif" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book04.jpg" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book05.jfif" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book06.jfif" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book07.jpg" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book08.jpg" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book09.jpg" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="box">
+                        <div className="icons">
+                            <a href="\#"><FaSearch /></a>
+                            <a href="\#"><FaHeart /></a>
+                            <a href="\#"><FaEye /></a>
+                        </div>
+                        <div className="image">
+                            <img src="images/book10.jpg" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>featured book</h3>
+                            <div className="price">$15.99<span>$20.99</span></div>
+                            <a href='\#' className="btn">add to cart</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+            </div>
+        </section>
         </div>
     )
 }

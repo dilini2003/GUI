@@ -25,7 +25,6 @@
 
 html{
   font-size: 62.5%;
-  overflow: hidden;
   scroll-padding-top: 5rem;
   scroll-behavior: smooth;
 }
@@ -419,4 +418,101 @@ section{
 .featured .featured-slider .box .icons a:hover{
   background: var(--green);
   color:#fff;
+}
+.featured .featured-slider .box .content{
+  background: #eee;
+  padding: 1.5rem;
+}
+.featured .featured-slider .box .content h3{
+  font-size: 2rem;
+  color: var(--black);
+}
+.featured .featured-slider .box .content .price{
+  font-size: 2.2rem;
+  color: var(--black);
+  padding-top: 1rem;
+}
+.featured .featured-slider .box .content .price span{
+  font-size: 1.5rem;
+  color: var(--light-color);
+  text-decoration: line-through;
+}
+
+@media(max-width: 768px){
+  .featured .featured-slider .box{
+    width: 25rem;
+  }
+}
+
+/* nwsletter */
+.newsletter{
+  background: url(../public/images/letterbg.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.newsletter form{
+  max-width: 55rem;
+  margin-left: auto;
+  text-align: center;
+  padding: 5rem 0;
+}
+.newsletter form h3{
+  font-size: 2.2rem;
+  color: #fff;
+  padding: 0.7rem;
+  font-weight: normal;
+}
+.newsletter form .box{
+  width: 100%;
+  margin: 0.7rem 0;
+  padding: 1rem 1.2 rem;
+  font-size: 1.5rem;
+  color: var(--black);
+  border-radius: 0.5rem;
+  text-transform: none;
+}
+@media(max-width:768px){
+  .newsletter{
+    background-position: right;
+  }
+  .newsletter form{
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+/* arrivals */
+.arrivals .arrivals-slider .box{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  border: var(--border);
+  margin: 1rem 0;
+  margin-top: 3rem;
+}
+.arrivals .arrivals-slider .box:hover{
+  border: var(--border-hover);
+}
+.arrivals .arrivals-slider .box .image img{
+  height: 15rem;
+}
+.arrivals .arrivals-slider .box .content h3{
+  font-size: 2rem;
+  color: var(--black);
+}
+.arrivals .arrivals-slider .box .content .price{
+  font-size: 2.2rem;
+  color: var(--black);
+  padding-bottom: 0.5rem;
+}
+.arrivals .arrivals-slider .box .content .price span{
+  font-size: 1.5rem;
+  color: var(--light-color);
+  text-decoration: line-through;
+}
+.arrivals .arrivals-slider .box .content .stars{
+  color: var(--green);
+  font-size: 1.5rem;
 }

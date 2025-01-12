@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from './Navbar';
 
-import { FaPlane, FaLock, FaHeadset, FaSearch, FaHeart, FaEye, FaStar, FaStarHalf } from "react-icons/fa";
+import { FaPlane, FaLock, FaHeadset, FaSearch, FaHeart, FaEye, FaStar, FaStarHalf,FaMapMarkedAlt, FaPhoneAlt,
+    FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP  } from "react-icons/fa";
 
 import {Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
@@ -543,6 +544,238 @@ const Home = ()=>{
                 </Swiper>
             </div>
         </section>
+
+        <section className='deal'>
+            <div className="content">
+                <h3>deal of the day</h3>
+                <h1>upto 50% offers</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Facere iure accusantium nisi minus ipsum porro.</p>
+                <a href="\#" className="btn">shop now</a>
+            </div>
+            <div className="image">
+                <img src="images/deal.jpg" alt=""/>
+            </div>
+
+        </section>
+
+        <section className="reviews" id='reviews'>
+            <h1 className='heading'><span>clint's reviews</span></h1>
+            <div className="swiper">
+            <Swiper 
+                watchSlidesProgress={true}
+                autoplay={{
+                    delay:3500,
+                    disableOnInteraction:false
+                }}
+                modules={[Autoplay]} className="reviews-slider"
+                {...swiperOptionsThree} >
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/pic01.jfif" alt=""/>
+                            <h3>Anna Safra</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. iure quibusdam delectus doloribus?</p>
+                            <div className="stars">
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStarHalf /></i>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/pic02.jfif" alt=""/>
+                            <h3>Anna Safra</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. iure quibusdam delectus doloribus?</p>
+                            <div className="stars">
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStarHalf /></i>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/pic03.jpg" alt=""/>
+                            <h3>Anna Safra</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. iure quibusdam delectus doloribus?</p>
+                            <div className="stars">
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStarHalf /></i>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/pic04.jpg" alt=""/>
+                            <h3>Anna Safra</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. iure quibusdam delectus doloribus?</p>
+                            <div className="stars">
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStarHalf /></i>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/pic05.jpg" alt=""/>
+                            <h3>Anna Safra</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. iure quibusdam delectus doloribus?</p>
+                            <div className="stars">
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStarHalf /></i>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/pic06.jpg" alt=""/>
+                            <h3>Anna Safra</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. iure quibusdam delectus doloribus?</p>
+                            <div className="stars">
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStarHalf /></i>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+            </div>
+        </section>
+
+        <section className="blogs" id='blogs'>
+            <h1 className='heading'><span>our blogs</span></h1>
+            <div className="swiper">
+            <Swiper 
+                watchSlidesProgress={true}
+                autoplay={{
+                    delay:3500,
+                    disableOnInteraction:false
+                }}
+                modules={[Autoplay]} className="blogs-slider"
+                {...swiperOptionsThree} >
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/blog01.jfif" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>blog goes here</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquid sed officia.
+                            </p>
+                            <a href="\#" className="btn">read more</a>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/blog02.jpg" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>blog goes here</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquid sed officia.
+                            </p>
+                            <a href="\#" className="btn">read more</a>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/blog03.jfif" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>blog goes here</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquid sed officia.
+                            </p>
+                            <a href="\#" className="btn">read more</a>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/blog04.jpg" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>blog goes here</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquid sed officia.
+                            </p>
+                            <a href="\#" className="btn">read more</a>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="swiper-slide box">
+                            <img src="images/blog05.jpg" alt=""/>
+                        </div>
+                        <div className="content">
+                            <h3>blog goes here</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquid sed officia.
+                            </p>
+                            <a href="\#" className="btn">read more</a>
+                        </div>
+                    </SwiperSlide>
+            </Swiper>
+            </div>
+        </section>
+
+        <section className="footer">
+            <div className="box-container">
+                <div className="box">
+                    <h3>our locations</h3>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>india</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>USA</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>russia</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>france</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>japan</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>africa</a>
+                </div>
+                <div className="box">
+                    <h3>quick links</h3>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>home</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>featured</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>arrivals</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>blogs</a>
+                </div>
+                <div className="box">
+                    <h3>extra links</h3>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>account info</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>ordered items</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>privacy policy</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>payment method</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>our services</a>
+                </div>
+                <div className="box">
+                    <h3>contact info</h3>
+                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
+                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
+                    <a href="\#"><i><FaEnvelope /></i>john@gmail.com</a>
+                    <img src="images/map.jpg" alt="" className="map"/>
+                </div>
+            </div>
+            <div className="share">
+                <a href="\#"><i><FaFacebookF /></i></a>
+                <a href="\#"><i><FaTwitter /></i></a>
+                <a href="\#"><i><FaInstagram /></i></a>
+                <a href="\#"><i><FaLinkedinIn /></i></a>
+                <a href="\#"><i><FaPinterestP /></i></a>
+            </div>
+            <div className="credit">created by <span>CodeSlaves Design</span> | all rights reserved!</div>
+        </section>
+
         </div>
     )
 }

@@ -26,9 +26,37 @@ const db = new sqlite3.Database('./database.sqlite', (err) => {
         password TEXT
       )
     `);
-
-  }
+// Create books table
+db.run(`
+  CREATE TABLE IF NOT EXISTS books (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    author TEXT NOT NULL,
+    price REAL,
+    originalprice REAL,
+    image_url TEXT,
+    category TEXT
+  )
+`, () => {
+  console.log('Books table is ready.');
 });
+}
+});
+
+// API endpoint to get books
+app.get('/books', (req, res) => {
+  const query = 'SELECT * FROM books';
+  db.all(query, [], (err, rows) => {
+      if (err) {
+          res.status(500).json({ error: err.message });
+          return;
+      }
+      res.json(rows);
+  });
+});
+
+
+ 
 
 // ==================== User Authentication ====================
 // Signup

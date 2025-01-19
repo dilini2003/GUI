@@ -15,7 +15,7 @@
 
 :root{
   --green:#2eeea2;
-  --dark-color:#12e590;
+  --dark-color:#12c37c;
   --black:#444;
   --light-color:#666;
   --border:0.1rem solid rgba(0,0,0,0.1);
@@ -38,6 +38,7 @@ html::-webkit-scrollbar-thumb{
   background: var(--black);
 }
 
+/*Navbar */
 .header .header_one{
   display: flex;
   align-items: center;
@@ -175,64 +176,6 @@ html::-webkit-scrollbar-thumb{
 }
 
 
-/*login form*/
-.login-form-container{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
-  position: fixed;
-  top: 0;
-  right: -105%;
-  z-index: 10000;
-  height: 100%;
-  width:100%;
-}
-.login-form{
-  right: 0;
-}
-.login-form-container form{
-  background: #ffffff;
-  border: var(--border);
-  width: 40rem;
-  padding: 2rem;
-  box-shadow: var(--box-shodow);
-  border-radius: 0.5rem;
-  margin: 2rem;
-}
-.login-form-container form h3{
-  font-size: 2.5rem;
-  text-align: center;
-  text-transform: uppercase;
-  color: var(--black);
-}
-.login-form-container form span{
-  display: flex;
-  font-size: 2rem;
-  
-}
-.login-form-container input{
-  font-size: 2rem;
-  margin-top: 0.7rem;
-}
-.login-form-container form .check-box{
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 0;
-}
-.login-form-container form .check-box label{
-  font-size: 1.4rem;
-  color: var(--black);
-  padding-top: 0.8rem;
-}
-
-.login-form-container form .btn{
-  text-align: center;
-  width: 100%;
-  margin: 1.5rem 0;
-}
 .btn{
   margin-top: 1rem;
   display: inline-block;
@@ -261,25 +204,8 @@ html::-webkit-scrollbar-thumb{
 .btn1:hover{
   background: var(--dark-color);
 }
-.login-form-container form p{
-  padding-top: 0.8rem;
-  color: var(--light-color);
-  font-size: 1.5rem;
-}
-.login-form-container form p a{
-  text-decoration: underline;
-  color:var(--green);
-}
-.login-form-container #close-login-btn{
-  position: absolute;
-  top: 1.5rem;
-  right: 2.5rem;
-  font-size: 5rem;
-  cursor: pointer;
-}
 
-
-
+/** Home */
 section{
   padding:3rem 9%;
 }

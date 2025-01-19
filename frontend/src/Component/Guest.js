@@ -5,10 +5,12 @@ import Arrivals from "./Arrivals";
 import Reviews from "./Reviews";
 import Blogs from "./Blogs";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 const Guest = () => {
   return (
     <div>
+      <Navbar/>
       <Home />
       <Featured />
       <Arrivals />

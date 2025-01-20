@@ -1,581 +1,85 @@
-import React from "react";
-import { FaStar, FaStarHalf } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
-import { Autoplay } from "swiper/modules";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FaEye, FaHeart } from "react-icons/fa";
+
+const categories = [
+  { id: "new", label: "New Arrivals", color: "pink" },
+  { id: "children", label: "Children's Books", color: "green" },
+  { id: "educational", label: "Educational Books", color: "orange" },
+  { id: "fiction", label: "Fiction", color: "blue" },
+  { id: "fantasy", label: "Fantasy", color: "purple" },
+  { id: "biography", label: "Biography", color: "brown" },
+];
 
 const Arrivals = () => {
-  const swiperOptionsThree = {
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-        spaceBetween: 10,
-      },
-      450: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 10,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-    loop: true,
-    centeredSlides: true,
-    spaceBetween: 10,
+  const [books, setBooks] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("new");
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/books")
+      .then((response) => setBooks(response.data))
+      .catch((error) => console.error("Error fetching books:", error));
+  }, []);
+
+  const filterBooksByCategory = () => {
+    switch (selectedCategory) {
+      case "new":
+        return books.filter((book) => book.category === "New Arrivals");
+      case "children":
+        return books.filter((book) => book.category === "Children's Books");
+      case "educational":
+        return books.filter((book) => book.category === "Educational Books");
+      case "fiction":
+        return books.filter((book) => book.category === "Fiction");
+      case "fantasy":
+        return books.filter((book) => book.category === "Fantasy");
+      case "biography":
+        return books.filter((book) => book.category === "Biography");
+      default:
+        return [];
+    }
   };
+  
   return (
     <div>
-      <section className="arrivals" id="Arrivals">
+      <section className="categories"  >
+        <div className="category-buttons">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              className={`category-button ${category.color}`}
+              onClick={() => setSelectedCategory(category.id)}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="arrivals" id ="#Arrivals">
         <div className="heading">
-          <span>new arrivals</span>
+          <span>{categories.find((cat) => cat.id === selectedCategory)?.label}</span>
         </div>
-        <div className="Swiper">
-          <Swiper
-            watchSlidesProgress={true}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="arrivals-slider"
-            {...swiperOptionsThree}
-          >
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book01.jfif" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book02.jfif" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book03.jfif" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book04.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book05.jfif" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-          </Swiper>
+        <div className="grid">
+          {filterBooksByCategory().map((book) => (
+            <div className="box" key={book.id}>
+              <div className="image">
+                <img src={book.image_url} alt={book.title} />
+                <div className="hover-icons">
+          <a href="#z"><FaHeart/></a>
+          <a href="#s"><FaEye/></a>
         </div>
-        
-        <div className="heading1">
-          <span>Short Story</span>
-        </div>
-
-        <div className="Swiper">
-          <Swiper
-            watchSlidesProgress={true}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="arrivals-slider"
-            {...swiperOptionsThree}
-          >
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book06.jfif" alt="" />
+              </div>
+              <div className="content">
+                <h3>{book.title}</h3>
+                <div className="price">
+                  Rs.{book.price} <span>Rs.{book.originalprice}</span>
                 </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book07.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book08.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book09.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book10.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-
-        <div className="heading1">
-          <span>Childern books</span>
-        </div>
-
-        <div className="Swiper">
-          <Swiper
-            watchSlidesProgress={true}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="arrivals-slider"
-            {...swiperOptionsThree}
-          >
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book06.jfif" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book07.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book08.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book09.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href="\#" className="box">
-                <div className="image">
-                  <img src="images/book10.jpg" alt="" />
-                </div>
-                <div className="content">
-                  <h3>new arrivals</h3>
-                  <div className="price">
-                    $15.99<span>$20.99</span>
-                  </div>
-                  <div className="stars">
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStar />
-                    </i>
-                    <i>
-                      <FaStarHalf />
-                    </i>
-                  </div>
-                  <a href="\#" className="btn1">
-                    add to cart
-                  </a>
-                </div>
-              </a>
-            </SwiperSlide>
-          </Swiper>
+                <button className="btn">Add to Cart</button>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -43,7 +43,7 @@ const Arrivals = () => {
   
   return (
     <div>
-      <section className="categories"  >
+      <section className="categories" id ="Arrivals" >
         <div className="category-buttons">
           {categories.map((category) => (
             <button
@@ -57,7 +57,7 @@ const Arrivals = () => {
         </div>
       </section>
 
-      <section className="arrivals" id ="#Arrivals">
+      <section className="arrivals" >
         <div className="heading">
           <span>{categories.find((cat) => cat.id === selectedCategory)?.label}</span>
         </div>
@@ -85,11 +85,10 @@ const Arrivals = () => {
 
       <section className="deal">
         <div className="content">
-          <h3>deal of the day</h3>
-          <h1>upto 50% offers</h1>
+          <h3>📚Deal of the Day</h3>
+          <h1>Up to 50% Off!🎉</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.Facere iure
-            accusantium nisi minus ipsum porro.
+          Discover amazing deals on your favorite books with our Deal of the Day! Enjoy discounts of up to 50% on bestsellers. Don't miss out—grab your next great read at an unbeatable price today!
           </p>
           <a href="#Arrivals" className="btn">
             shop now

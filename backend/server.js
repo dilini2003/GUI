@@ -40,6 +40,17 @@ db.run(`
 `, () => {
   console.log('Books table is ready.');
 });
+db.run(`
+  CREATE TABLE IF NOT EXISTS cart (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    book_id INTEGER,
+    quantity INTEGER,
+    FOREIGN KEY (book_id) REFERENCES books (id)
+  )
+`, () => {
+  console.log('Cart table is ready.');
+});
+
 }
 });
 
@@ -55,7 +66,84 @@ app.get('/books', (req, res) => {
   });
 });
 
+// Add book to cart
+app.post('/api/cart', (req, res) => {
+  const { book_id, quantity } = req.body;
 
+  const checkSql = `SELECT * FROM cart WHERE book_id = ?`;
+  db.get(checkSql, [book_id], (err, row) => {
+    if (err) {
+      res.status(500).send({ error: 'Database error' });
+      return;
+    }
+    if (row) {
+      // Update quantity if book already exists
+      const updateSql = `UPDATE cart SET quantity = quantity + ? WHERE book_id = ?`;
+      db.run(updateSql, [quantity, book_id], function (err) {
+        if (err) {
+          res.status(500).send({ error: 'Error updating cart' });
+        } else {
+          res.send({ message: 'Cart updated successfully' });
+        }
+      });
+    } else {
+      // Insert new book in cart
+      const insertSql = `INSERT INTO cart (book_id, quantity) VALUES (?, ?)`;
+      db.run(insertSql, [book_id, quantity], function (err) {
+        if (err) {
+          res.status(500).send({ error: 'Error adding to cart' });
+        } else {
+          res.send({ message: 'Book added to cart' });
+        }
+      });
+    }
+  });
+});
+
+// Get cart items
+app.get('/api/cart', (req, res) => {
+  const query = `
+    SELECT cart.id, books.title, books.price, books.image_url, cart.quantity 
+    FROM cart 
+    JOIN books ON cart.book_id = books.id
+  `;
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      res.status(500).send({ error: 'Error fetching cart' });
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
+// Update cart item quantity
+app.put('/api/cart/:id', (req, res) => {
+  const { quantity } = req.body;
+  const cartId = req.params.id;
+
+  const sql = `UPDATE cart SET quantity = ? WHERE id = ?`;
+  db.run(sql, [quantity, cartId], function (err) {
+    if (err) {
+      res.status(500).send({ error: 'Error updating cart' });
+    } else {
+      res.send({ message: 'Cart updated successfully' });
+    }
+  });
+});
+
+// Remove item from cart
+app.delete('/api/cart/:id', (req, res) => {
+  const cartId = req.params.id;
+
+  const sql = `DELETE FROM cart WHERE id = ?`;
+  db.run(sql, [cartId], function (err) {
+    if (err) {
+      res.status(500).send({ error: 'Error removing item' });
+    } else {
+      res.send({ message: 'Item removed from cart' });
+    }
+  });
+});
  
 
 // ==================== User Authentication ====================

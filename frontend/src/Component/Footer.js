@@ -9,12 +9,12 @@ const Footer = () => {
             <div className="box-container">
                 <div className="box">
                     <h3>our locations</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>india</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>USA</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>russia</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>france</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>japan</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>africa</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>india</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>USA</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>russia</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>france</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>japan</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>africa</a>
                 </div>
                 <div className="box">
                     <h3>quick links</h3>
@@ -26,28 +26,28 @@ const Footer = () => {
                 </div>
                 <div className="box">
                     <h3>extra links</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>account info</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>ordered items</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>privacy policy</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>payment method</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>our services</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>account info</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>ordered items</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>privacy policy</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>payment method</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>our services</a>
                 </div>
                 <div className="box">
                     <h3>contact info</h3>
-                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaEnvelope /></i>john@gmail.com</a>
+                    <a href="#n"><i><FaPhoneAlt /></i>+123-356-546</a>
+                    <a href="#n"><i><FaPhoneAlt /></i>+123-356-547</a>
+                    <a href="#n"><i><FaEnvelope /></i>bookly@gmail.com</a>
                     
                 </div>
             </div>
             <div className="share">
-                <a href="\#"><i><FaFacebookF /></i></a>
-                <a href="\#"><i><FaTwitter /></i></a>
-                <a href="\#"><i><FaInstagram /></i></a>
-                <a href="\#"><i><FaLinkedinIn /></i></a>
-                <a href="\#"><i><FaPinterestP /></i></a>
+                <a href="#n"><i><FaFacebookF /></i></a>
+                <a href="#n"><i><FaTwitter /></i></a>
+                <a href="#n"><i><FaInstagram /></i></a>
+                <a href="#n"><i><FaLinkedinIn /></i></a>
+                <a href="#n"><i><FaPinterestP /></i></a>
             </div>
-            <div className="credit">created by <span>CodeSlaves Design</span> | all rights reserved!</div>
+            <div className="credit">Copyright 2025 © <span>Bookly.com</span> | all rights reserved</div>
         </section>
     </div>
   )

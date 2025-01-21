@@ -6,11 +6,11 @@ import {
   FaShoppingCart,
   FaUser,
   FaHome,
-  FaList,
   FaTags,
   FaStore,
+  FaReadme,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -22,10 +22,10 @@ const Navbar = () => {
     <div>
       <header className="header">
         <div className="header_one">
-          <a href="\#" className="logo">
+          <Link className="logo">
             <FaBook />
             Bookly
-          </a>
+          </Link>
           <form className="search-form">
             <input type="text" id="search-box" placeholder="search here..." />
             <label htmlFor="">
@@ -33,15 +33,12 @@ const Navbar = () => {
             </label>
           </form>
           <div className="icons">
-            <div id="search-btn">
-              <FaSearch />
-            </div>
             <a href="/#">
               <FaHeart />
             </a>
-            <a href="/#">
+            <Link to="/cart">
               <FaShoppingCart />
-            </a>
+            </Link>
             <div id="login-btn" className="user-btn" onClick={handleLogin}>
               <FaUser />
             </div>
@@ -60,16 +57,19 @@ const Navbar = () => {
       </header>
 
       <div className="bottom-navbar">
-        <a href="/#">
+        <a href="#Home">
           <FaHome />
         </a>
-        <a href="/#">
-          <FaList />
+        <a href="#Featured">
+          <FaReadme/>
         </a>
-        <a href="/#">
+        <a href="#Arrivals">
+          <FaBook />
+        </a>
+        <a href="#Reviews">
           <FaTags />
         </a>
-        <a href="/#">
+        <a href="#Blogs">
           <FaStore />
         </a>
       </div>

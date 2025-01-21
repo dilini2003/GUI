@@ -38,10 +38,9 @@ const Home = () => {
       <section className="home" id="Home">
         <div className="row">
           <div className="content">
-            <h3>upto 55% offers</h3>
+            <h3>Welcome Bookly!</h3>
             <p>
-              Lorem dolor sit amet consectetur adipisicing elit. Quod eum
-              perspiciatis doloremque, placeat voluptatem natus?
+            Explore a wide collection of books across various genres, from fiction to self-help. Discover your next great read and enjoy a seamless shopping experience with us. Happy reading!
             </p>
             <a href="#Arrivals" className="btn">
               shop now

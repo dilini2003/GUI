@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaBook,
   FaHeart,
@@ -11,12 +11,37 @@ import {
   FaReadme,
 } from "react-icons/fa";
 import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const handleLogin = () => {
     navigate("/Login"); // Navigate to the Login page
   };
+
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/cart")
+      .then((response) => {
+        // Calculate total number of items in the cart
+        const totalItems = response.data.reduce((acc, item) => acc + item.quantity, 0);
+        setCartCount(totalItems);
+      })
+      .catch((error) => console.error("Error fetching cart items:", error));
+  }, []);
+
+  const [heartCount, setHeartCount] = useState(0);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/heart")
+      .then((response) => {
+        // Calculate total number of items in the cart
+        const totalItem = response.data.reduce((acc, item) => acc + item.quantity, 0);
+        setHeartCount(totalItem);
+      })
+      .catch((error) => console.error("Error fetching heart items:", error));
+  }, []);
 
   return (
     <div>
@@ -33,11 +58,13 @@ const Navbar = () => {
             </label>
           </form>
           <div className="icons">
-            <a href="/#">
+            <Link to="/heart" id='heart' className="user-btn">
               <FaHeart />
-            </a>
-            <Link to="/cart">
+              {heartCount > 0 && <span className="heart-count">{heartCount}</span>}
+            </Link>
+            <Link to="/cart" id="cart" className="user-btn">
               <FaShoppingCart />
+              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
             </Link>
             <div id="login-btn" className="user-btn" onClick={handleLogin}>
               <FaUser />

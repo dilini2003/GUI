@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { FaHeart, FaEye, } from "react-icons/fa";
+import { FaHeart, FaEye } from "react-icons/fa";
 import {Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import {Autoplay } from 'swiper/modules';
 import axios from "axios";
 
-const Featured = () => {
+const Featured = ( ) => {
     const [educationalBooks, setEducationalBooks] = useState([]);
   const [fictionBooks, setFictionBooks] = useState([]);
   const [fantasyBooks, setFantasyBooks] = useState([]);
@@ -52,6 +52,11 @@ const Featured = () => {
           .then(response => alert(response.data.message))
           .catch(error => console.error('Error adding to cart:', error));
       };
+      const addToHeart = (bookId) => {
+        axios.post('http://localhost:5000/api/heart', { book_id: bookId, quantity: 1 })
+          .then(response => alert(response.data.message))
+          .catch(error => console.error('Error adding to heart:', error));
+      };
 
       const renderSwiper = (books) => (
         <Swiper
@@ -68,7 +73,7 @@ const Featured = () => {
                     <SwiperSlide key={book.id}>
                         <div className="box">
                         <div className="icons">
-                            <a href="#z"><FaHeart /></a>
+                            <button onClick={() => addToHeart(book.id)}><FaHeart /></button>
                             <a href="#z"><FaEye /></a>
                         </div>
                         <div className="image">

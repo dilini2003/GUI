@@ -9,15 +9,15 @@ const Reviews = () => {
         breakpoints:{
         0:{
             slidesPerView:1,
-            spaceBetween:10,
+            spaceBetween:20,
         },
         450:{
             slidesPerView:2,
-            spaceBetween:10,
+            spaceBetween:20,
         },
         768:{
             slidesPerView:3,
-            spaceBetween:10,
+            spaceBetween:20,
         },
         1024:{
             slidesPerView:3,
@@ -25,7 +25,7 @@ const Reviews = () => {
         },
         loop:true,
         centeredSlides:true,
-        spaceBetween:10,
+        spaceBetween:20,
     };
   return (
     <div>

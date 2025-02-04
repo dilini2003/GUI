@@ -48,8 +48,8 @@ const Blogs = () => {
                             <p>
                             It's holiday season, and for a lot of us, that means travel. For goodness sake, don't buy a book at an airport unless it is a true emergency. Be prepared. Buy your travel books used. You want them entertaining enough to distract you from the hassles of getting to your destination, and you also want them lightweight and disposable so that you can leave them behind if you need more room in your luggage.
                           </p>
-                          <a href="\#" className="button">read more</a>
                           </div>
+                          <a href="\#" className="button">read more</a>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -61,8 +61,8 @@ const Blogs = () => {
                             <p>
                             Maddie arrived one morning to find an astrology book wide open on the floor in front of Biography.  She knew it hadn't been there when she closed the night before.I once stood at the counter and witnessed a historical romance (involving men in kilts, if you must know) come straight off the shelf by a good two inches and then plummet to the floor.
                             </p>
-                            <a href="\#" className="button">read more</a>
-                            </div> 
+                            </div>
+                            <a href="\#" className="button">read more</a> 
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -74,8 +74,8 @@ const Blogs = () => {
                             <p>
                             It's the dark time of year, and you know what that means: going to bed early to read!  Like many of you, I have a pile of books on my bedside table, and I read more than one at a time.  Before bed, I like witty fiction and fascinating science or history.  And now until at least Groundhog Day, I'm ending each night's reading session with an excerpt from my favorite children's stories.
                             </p>
-                            <a href="\#" className="button">read more</a>
                             </div>
+                            <a href="\#" className="button">read more</a>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -87,8 +87,8 @@ const Blogs = () => {
                             <p>
                             Every time February comes around, all the red, pink, and white Valentine's Day gifts are thrown into the front lines, promise love and romance, and we, the heartbroken and lonely, can only turn our heads, wipe away the tear that falls unexpectedly, and hope no one notices our dire state.There's hope, however, for in the midst of all candy hearts and monogrammed sweets, there are books, countless books, that will have our backs.
                             </p>
-                            <a href="\#" className="button">read more</a>
                             </div>
+                            <a href="\#" className="button">read more</a>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -100,8 +100,8 @@ const Blogs = () => {
                             <p>
                             Books for taller people have been moved downstairs.  Biography, History, Science, Reference, and Foreign Language are now downstairs in the back corner where Kids used to be. Young Adult has moved into the main room where Horror was.  Horror is where Kids Beginning Chapter Books were.  You get the idea.  Moving the sections felt like that game Traffic Jam where you have to figure out which car to move when and where in order to get another into its space and eventually free the car clog.Sections may not be perfectly alphabetized, but things are generally in the right place. We're getting there!    So come on in and get reacquainted with the layout. Saturday, November 25 is Small Business Saturday, and we are running a Buy 3 Get 1 Free special. Your friendly booksellers are always ready to help you find your next read, wherever it is.
                             </p>
-                            <a href="\#" className="button">read more</a>
                             </div>
+                            <a href="\#" className="button">read more</a>
                         </div>
                     </SwiperSlide>
             </Swiper>

@@ -51,6 +51,14 @@ db.run(`
   console.log('Cart table is ready.');
 });
 
+db.run(`
+  CREATE TABLE IF NOT EXISTS heart (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    book_id INTEGER,
+    quantity INTEGER,
+    FOREIGN KEY (book_id) REFERENCES books (id)
+  )
+`);
 }
 });
 
@@ -241,6 +249,87 @@ app.put('/api/update-profile/:id', (req, res) => {
     }
   });
 });
+
+// Add book to Heart
+app.post('/api/heart', (req, res) => {
+  const { book_id, quantity } = req.body;
+
+  const checkSql = `SELECT * FROM heart WHERE book_id = ?`;
+  db.get(checkSql, [book_id], (err, row) => {
+    if (err) {
+      res.status(500).send({ error: 'Database error' });
+      return;
+    }
+    if (row) {
+      // Update quantity if book already exists
+      const updateSql = `UPDATE heart SET quantity = quantity + ? WHERE book_id = ?`;
+      db.run(updateSql, [quantity, book_id], function (err) {
+        if (err) {
+          res.status(500).send({ error: 'Error updating heart' });
+        } else {
+          res.send({ message: 'Already add book' });
+        }
+      });
+    } else {
+      // Insert new book in heart
+      const insertSql = `INSERT INTO heart (book_id, quantity) VALUES (?, ?)`;
+      db.run(insertSql, [book_id, quantity], function (err) {
+        if (err) {
+          res.status(500).send({ error: 'Error adding to heart' });
+        } else {
+          res.send({ message: 'Book added to heart' });
+        }
+      });
+    }
+  });
+});
+
+// Get heart items
+app.get('/api/heart', (req, res) => {
+  const query = `
+    SELECT heart.id, books.title, books.price, books.image_url
+    FROM heart 
+    JOIN books ON heart.book_id = books.id
+  `;
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      res.status(500).send({ error: 'Error fetching heart' });
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
+// Update cart item quantity
+app.put('/api/heart/:id', (req, res) => {
+  const { quantity } = req.body;
+  const heartId = req.params.id;
+
+  const sql = `UPDATE heart SET quantity = ? WHERE id = ?`;
+  db.run(sql, [quantity, heartId], function (err) {
+    if (err) {
+      res.status(500).send({ error: 'Error updating heart' });
+    } else {
+      res.send({ message: 'Cart updated successfully' });
+    }
+  });
+});
+
+// Remove item from cart
+app.delete('/api/heart/:id', (req, res) => {
+  const heartId = req.params.id;
+
+  const sql = `DELETE FROM heart WHERE id = ?`;
+  db.run(sql, [heartId], function (err) {
+    if (err) {
+      res.status(500).send({ error: 'Error removing item' });
+    } else {
+      res.send({ message: 'Item removed from heart' });
+    }
+  });
+});
+ 
+
 
 // ==================== Server Listener ====================
 app.listen(port, 'localhost', () => {

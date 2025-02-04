@@ -1,5 +1,5 @@
 
-.cart-page {
+.heart-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@
     background-color: #f9f9f9;
     min-height: 100vh;
   }
-  .cart-card {
+  .heart-card {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -15,20 +15,20 @@
     width: 90%;
     max-width: 500px;
   }
-  .cart-title {
+  .heart-title {
     font-size: 2.5rem;
     margin-bottom: 20px;
     text-align: center;
     color: #333;
   }
 
-  .cart-items {
+  .heart-items {
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
   
-  .cart-item {
+  .heart-item {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -36,28 +36,28 @@
     padding-bottom: 15px;
   }
   
-  .cart-item:last-child {
+  .heart-item:last-child {
     border-bottom: none;
   }
   
-  .cart-item-image {
+  .heart-item-image {
     width: 60px;
     height: 80px;
     object-fit: cover;
     border-radius: 5px;
   }
   
-  .cart-item-details {
+  .heart-item-details {
     flex-grow: 1;
   }
   
-  .cart-item-name {
+  .heart-item-name {
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
   }
   
-  .cart-item-price {
+  .heart-item-price {
     font-size: 1.2rem;
     color: #888;
   }
@@ -76,7 +76,7 @@
     background: #ff3333;
   }
   
-  .empty-cart {
+  .empty-heart {
     text-align: center;
     color: #777;
     font-size: 1.5rem;
@@ -84,74 +84,29 @@
   
   
   
-  .cart-items-item{
+  .heart-items-item{
     margin: 10px 0px;
     color: black;
   }
   
-  .cart-items-item img{
+  .heart-items-item img{
     width: 50px;
   }
   
-  .cart hr{
+  .heart hr{
     height: 1px;
     background-color: #e2e2e2;
     border: none;
   }
   
-  .cart-items-item .cross{
+  .heart-items-item .cross{
     cursor: pointer;
   }
   
-  .cart-bottom{
-    margin-top: 80px;
-    display: flex;
-    justify-content: space-between;
-    gap: max(12vw,20px);
-  }
   
-  .cart-total{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .cart-bottom .cart-total h2{
-    font-size: 2rem;
-  }
-
-  .cart-total-details{
-    display: flex;
-    justify-content: space-between;
-    color: #555;
-    font-size: 1.3rem;
-  }
-  
-  .cart-total hr{
-    margin: 2px 0px;
-  }
-  
-  .cart-total button{
-    border: none;
-    align-items: center;
-    text-align: center;
-    color: white;
-    background-color: #2eeea2;
-    width: max(10vw,150px);
-    padding: 12px 5px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .cart-total button:hover{
-    background-color: #12c37c;
-  }
   @media (max-width:750px) {
-    .cart-bottom{
+    .heart-bottom{
         flex-direction: column-reverse;
-    }
-    .cart-promocode{
-        justify-content: start;
     }
   }
   

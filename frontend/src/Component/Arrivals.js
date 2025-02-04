@@ -10,7 +10,11 @@ const categories = [
   { id: "fantasy", label: "Fantasy", color: "purple" },
   { id: "biography", label: "Biography", color: "brown" },
 ];
-
+const addToCart = (bookId) => {
+  axios.post('http://localhost:5000/api/cart', { book_id: bookId, quantity: 1 })
+    .then(response => alert(response.data.message))
+    .catch(error => console.error('Error adding to cart:', error));
+};
 const Arrivals = () => {
   const [books, setBooks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("new");
@@ -76,7 +80,7 @@ const Arrivals = () => {
                 <div className="price">
                   Rs.{book.price} <span>Rs.{book.originalprice}</span>
                 </div>
-                <button className="btn">Add to Cart</button>
+                <button onClick={() => addToCart(book.id)} className="btn">Add to Cart</button>
               </div>
             </div>
           ))}

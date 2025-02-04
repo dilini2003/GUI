@@ -37,10 +37,6 @@ const Cart = () => {
     <div className="cart-page">
       <div className="cart-card">
         <h2 className="cart-title">Your Cart</h2>
-        <div className="cart-items-title">
-          <p>Items</p>
-          <p>Price</p>
-        </div>
         <hr/>
 
         {cartItems.length === 0 ? (
@@ -76,12 +72,17 @@ const Cart = () => {
             <hr/>
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>Rs.50</p>
+              <p>Rs.250</p>
             </div>
             <hr/>
             <div className="cart-total-details">
               <b>Total</b>
-              <b>Rs.{calculateTotal() + 50}</b>
+              <b>Rs.{calculateTotal() + 250}</b>
+            </div>
+            <div className='button'>
+            <button className='cart-promocode-input'>
+              promocode
+            </button>
             </div>
           </div>
         </div>

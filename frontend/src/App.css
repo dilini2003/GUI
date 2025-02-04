@@ -85,15 +85,13 @@ html::-webkit-scrollbar-thumb{
   display: flex;
   align-items: center;
 }
-.header .header_one .icons div,
-.header .header_one .icons a{
+.header .header_one .icons .user-btn{
   font-size: 2.5rem;
   margin-left: 1.5rem;
   color: var(--black);
   cursor: pointer;
 }
-.header .header_one .icons div:hover,
-.header .header_one .icons a:hover{
+.header .header_one .icons .user-btn:hover{
   color: var(--green);
 }
 .header .header_two {
@@ -111,6 +109,12 @@ html::-webkit-scrollbar-thumb{
 .header .header_two .navbar a:hover{
   background: var(--dark-color);
 }
+.cart-icon {
+  position: relative;
+}
+
+
+
 
 /* bottom navbar */
 .bottom-navbar{
@@ -734,7 +738,7 @@ section{
   max-height: 5rem;
   margin-bottom: 1.5rem;
 }
-.blogs .blogs-slider .box .content .button{
+.blogs .blogs-slider .box .button{
   margin-top: 1rem;
   display: inline-block;
   padding: 0.9rem 3rem;
@@ -747,7 +751,7 @@ section{
   position: absolute;
   top: 31rem;
 }
-.blogs .blogs-slider .box .content .button:hover{
+.blogs .blogs-slider .box .button:hover{
   background: var(--dark-color);
 }
 

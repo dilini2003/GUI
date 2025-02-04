@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import {
   FaBook,
   FaHeart,
@@ -10,8 +10,21 @@ import {
   FaStore,
   FaReadme,
 } from "react-icons/fa";
+import axios from "axios";
 
 const Navbar = () => {
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/cart")
+      .then((response) => {
+        // Calculate total number of items in the cart
+        const totalItems = response.data.reduce((acc, item) => acc + item.quantity, 0);
+        setCartCount(totalItems);
+      })
+      .catch((error) => console.error("Error fetching cart items:", error));
+  }, []);
+
   return (
     <div>
       <header className="header">
@@ -30,9 +43,10 @@ const Navbar = () => {
             <a href="/#">
               <FaHeart />
             </a>
-            <a href="/#">
+            <Link to="/Cart">
               <FaShoppingCart />
-            </a>
+              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+            </Link>
           </div>
         </div>
 

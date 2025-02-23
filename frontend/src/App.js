@@ -6,6 +6,7 @@ import LoginPage from './Component/Login/LoginPage';
 import Account from './Component/Account/Account';
 import Cart from './Component/Cart/Cart';
 import Heart from './Heart/Heart';
+import Eye from './Component/Eye/Eye';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/account" element={<Account />} />
           <Route path="/cart" element={<Cart/>} />
           <Route path="/heart" element={<Heart/> } />
+          <Route path="/eye/:bookId" element={<Eye/> }/>
         </Routes>
       </Router>
     </div>

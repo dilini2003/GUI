@@ -62,6 +62,24 @@ db.run(`
 }
 });
 
+// Get book details by ID
+app.get('/books/:id', (req, res) => {
+  const bookId = req.params.id;
+  const query = 'SELECT * FROM books WHERE id = ?';
+
+  db.get(query, [bookId], (err, row) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else if (!row) {
+      res.status(404).json({ error: "Book not found" });
+    } else {
+      res.json(row);
+    }
+  });
+});
+
+
+
 // API endpoint to get books
 app.get('/books', (req, res) => {
   const query = 'SELECT * FROM books';

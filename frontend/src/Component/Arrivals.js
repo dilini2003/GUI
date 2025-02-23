@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaEye, FaHeart } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+
 
 const categories = [
   { id: "new", label: "New Arrivals", color: "pink" },
@@ -15,6 +17,11 @@ const addToCart = (bookId) => {
     .then(response => alert(response.data.message))
     .catch(error => console.error('Error adding to cart:', error));
 };
+const addToHeart = (bookId) => {
+  axios.post('http://localhost:5000/api/heart', { book_id: bookId, quantity: 1 })
+    .then(response => alert(response.data.message))
+    .catch(error => console.error('Error adding to heart:', error));
+};
 const Arrivals = () => {
   const [books, setBooks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("new");
@@ -25,6 +32,12 @@ const Arrivals = () => {
       .then((response) => setBooks(response.data))
       .catch((error) => console.error("Error fetching books:", error));
   }, []);
+
+  const navigate = useNavigate();
+  const showBookDetails = (bookId) => {
+    navigate(`/eye/${bookId}`);
+  };
+
 
   const filterBooksByCategory = () => {
     switch (selectedCategory) {
@@ -71,8 +84,8 @@ const Arrivals = () => {
               <div className="image">
                 <img src={book.image_url} alt={book.title} />
                 <div className="hover-icons">
-          <a href="#z"><FaHeart/></a>
-          <a href="#s"><FaEye/></a>
+          <a onClick={() => addToHeart(book.id)}><FaHeart/></a>
+          <a onClick={() => showBookDetails(book.id)}><FaEye/></a>
         </div>
               </div>
               <div className="content">

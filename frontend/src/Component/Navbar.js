@@ -25,7 +25,7 @@ const Navbar = () => {
     axios.get("http://localhost:5000/api/cart")
       .then((response) => {
         // Calculate total number of items in the cart
-        const totalItems = response.data.reduce((acc, item) => acc + item.quantity, 0);
+        const totalItems = response.data.reduce((acc, item) => acc + (item.quantity || 1), 0);
         setCartCount(totalItems);
       })
       .catch((error) => console.error("Error fetching cart items:", error));
@@ -37,7 +37,7 @@ const Navbar = () => {
     axios.get("http://localhost:5000/api/heart")
       .then((response) => {
         // Calculate total number of items in the cart
-        const totalItem = response.data.reduce((acc, item) => acc + item.quantity, 0);
+        const totalItem = response.data.reduce((acc, item) => acc + (item.quantity || 1), 0);
         setHeartCount(totalItem);
       })
       .catch((error) => console.error("Error fetching heart items:", error));
@@ -58,14 +58,14 @@ const Navbar = () => {
             </label>
           </form>
           <div className="icons">
-            <Link to="/heart" id='heart' className="user-btn">
+            <a href="/heart" id='heart' className="user-btn">
               <FaHeart />
               {heartCount > 0 && <span className="heart-count">{heartCount}</span>}
-            </Link>
-            <Link to="/cart" id="cart" className="user-btn">
+            </a>
+            <a href="/cart" id="cart" className="user-btn">
               <FaShoppingCart />
               {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-            </Link>
+            </a>
             <div id="login-btn" className="user-btn" onClick={handleLogin}>
               <FaUser />
             </div>

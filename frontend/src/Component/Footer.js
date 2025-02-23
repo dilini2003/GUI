@@ -9,12 +9,12 @@ const Footer = () => {
             <div className="box-container">
                 <div className="box">
                     <h3>our locations</h3>
-                    <a href="#n"><i><FaMapMarkedAlt /></i>india</a>
-                    <a href="#n"><i><FaMapMarkedAlt /></i>USA</a>
-                    <a href="#n"><i><FaMapMarkedAlt /></i>russia</a>
-                    <a href="#n"><i><FaMapMarkedAlt /></i>france</a>
-                    <a href="#n"><i><FaMapMarkedAlt /></i>japan</a>
-                    <a href="#n"><i><FaMapMarkedAlt /></i>africa</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>Colombo</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>Kegalle</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>Kandy</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>Ratnapura</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>Gampaha</a>
+                    <a href="#n"><i><FaMapMarkedAlt /></i>Galle</a>
                 </div>
                 <div className="box">
                     <h3>quick links</h3>

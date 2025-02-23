@@ -25,6 +25,18 @@ const Navbar = () => {
       .catch((error) => console.error("Error fetching cart items:", error));
   }, []);
 
+  const [heartCount, setHeartCount] = useState(0);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/heart")
+      .then((response) => {
+        // Calculate total number of items in the cart
+        const totalItem = response.data.reduce((acc, item) => acc + item.quantity, 0);
+        setHeartCount(totalItem);
+      })
+      .catch((error) => console.error("Error fetching heart items:", error));
+  }, []);
+
   return (
     <div>
       <header className="header">
@@ -40,13 +52,14 @@ const Navbar = () => {
             </label>
           </form>
           <div className="icons">
-            <a href="/#">
+            <a href="/heart" id='heart' className="user-btn">
               <FaHeart />
+              {heartCount > 0 && <span className="cart-count">{heartCount}</span>}
             </a>
-            <Link to="/Cart">
+            <a href="/cart" id="cart" className="user-btn">
               <FaShoppingCart />
               {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-            </Link>
+            </a>
           </div>
         </div>
 

@@ -82,7 +82,7 @@ const Home = () => {
           </i>
           <div className="content">
             <h3>over payment</h3>
-            <p>over payment $100</p>
+            <p>over payment Rs.250</p>
           </div>
         </div>
         <div className="icons">

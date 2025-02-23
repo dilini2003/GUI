@@ -4,12 +4,14 @@ import {Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import {Autoplay } from 'swiper/modules';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Featured = ( ) => {
     const [educationalBooks, setEducationalBooks] = useState([]);
   const [fictionBooks, setFictionBooks] = useState([]);
   const [fantasyBooks, setFantasyBooks] = useState([]);
   const [biographyBooks, setBiographyBooks] = useState([]);
+  const navigate = useNavigate();
     const swiperOptionsTwo ={
         breakpoints:{
         0:{
@@ -58,6 +60,10 @@ const Featured = ( ) => {
           .catch(error => console.error('Error adding to heart:', error));
       };
 
+      const showBookDetails = (bookId) => {
+        navigate(`/eye/${bookId}`);
+      };   
+
       const renderSwiper = (books) => (
         <Swiper
           watchSlidesProgress={true}
@@ -73,8 +79,8 @@ const Featured = ( ) => {
                     <SwiperSlide key={book.id}>
                         <div className="box">
                         <div className="icons">
-                            <button onClick={() => addToHeart(book.id)}><FaHeart /></button>
-                            <a href="#z"><FaEye /></a>
+                            <a onClick={() => addToHeart(book.id)}><FaHeart /></a>
+                            <a onClick={() => showBookDetails(book.id)}><FaEye /></a>
                         </div>
                         <div className="image">
                             <img src={book.image_url}
@@ -113,8 +119,8 @@ const Featured = ( ) => {
                 <a href='#n' type="submit" className='btn' >Subscribe</a>
             </form>
         </section>
-    </div>
-  )
+        </div>
+    )
 }
-
+    
 export default Featured

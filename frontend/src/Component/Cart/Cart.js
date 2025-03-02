@@ -6,7 +6,8 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/cart')
+    const userId = localStorage.getItem('userId'); // Get user ID from localStorage
+    axios.get(`http://localhost:5000/api/cart?user_id=${userId}`)
       .then(response => setCartItems(response.data))
       .catch(error => console.error('Error fetching cart:', error));
   }, []);

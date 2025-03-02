@@ -1,41 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React from "react";
+import './Navbar.css';
 import {
   FaBook,
   FaHeart,
   FaSearch,
   FaShoppingCart,
+  FaUser,
   FaHome,
   FaTags,
   FaStore,
   FaReadme,
 } from "react-icons/fa";
-import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [cartCount, setCartCount] = useState(0);
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    navigate("/Login"); // Navigate to the Login page
+  };
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/cart")
-      .then((response) => {
-        // Calculate total number of items in the cart
-        const totalItems = response.data.reduce((acc, item) => acc + item.quantity, 0);
-        setCartCount(totalItems);
-      })
-      .catch((error) => console.error("Error fetching cart items:", error));
-  }, []);
-
-  const [heartCount, setHeartCount] = useState(0);
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/heart")
-      .then((response) => {
-        // Calculate total number of items in the cart
-        const totalItem = response.data.reduce((acc, item) => acc + item.quantity, 0);
-        setHeartCount(totalItem);
-      })
-      .catch((error) => console.error("Error fetching heart items:", error));
-  }, []);
 
   return (
     <div>
@@ -52,14 +35,15 @@ const Navbar = () => {
             </label>
           </form>
           <div className="icons">
-            <a href="/heart" id='heart' className="user-btn">
+            <a onClick={handleLogin} id='heart' className="user-btn">
               <FaHeart />
-              {heartCount > 0 && <span className="cart-count">{heartCount}</span>}
             </a>
-            <a href="/cart" id="cart" className="user-btn">
+            <a onClick={handleLogin} id="cart" className="user-btn">
               <FaShoppingCart />
-              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
             </a>
+            <div id="login-btn" className="user-btn" onClick={handleLogin}>
+              <FaUser />
+            </div>
           </div>
         </div>
 
@@ -79,16 +63,16 @@ const Navbar = () => {
           <FaHome />
         </a>
         <a href="#Featured">
-        <FaReadme/>
+          <FaReadme/>
         </a>
         <a href="#Arrivals">
-        <FaBook />
+          <FaBook />
         </a>
         <a href="#Reviews">
           <FaTags />
         </a>
         <a href="#Blogs">
-        <FaStore/>
+          <FaStore />
         </a>
       </div>
 

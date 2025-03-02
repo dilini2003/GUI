@@ -5,8 +5,9 @@ import 'swiper/swiper-bundle.css';
 import {Autoplay } from 'swiper/modules';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import './Featured.css';
 
-const Featured = ( ) => {
+const Featured = ({isLoggedIn} ) => {
     const [educationalBooks, setEducationalBooks] = useState([]);
   const [fictionBooks, setFictionBooks] = useState([]);
   const [fantasyBooks, setFantasyBooks] = useState([]);
@@ -50,15 +51,23 @@ const Featured = ( ) => {
       }, []);
 
       const addToCart = (bookId) => {
-        axios.post('http://localhost:5000/api/cart', { book_id: bookId, quantity: 1 })
+        if (!isLoggedIn) {
+          navigate('/login');
+        } else {
+          const userId = localStorage.getItem('userId'); // Get user ID from localStorage
+        axios.post('http://localhost:5000/api/cart', { book_id: bookId, quantity: 1, user_id: userId })
           .then(response => alert(response.data.message))
           .catch(error => console.error('Error adding to cart:', error));
-      };
+        }  };
       const addToHeart = (bookId) => {
-        axios.post('http://localhost:5000/api/heart', { book_id: bookId, quantity: 1 })
+        if (!isLoggedIn) {
+          navigate('/login');
+        } else {
+          const userId = localStorage.getItem('userId'); // Get user ID from localStorage
+        axios.post('http://localhost:5000/api/heart', { book_id: bookId, quantity: 1, user_id: userId})
           .then(response => alert(response.data.message))
           .catch(error => console.error('Error adding to heart:', error));
-      };
+       } };
 
       const showBookDetails = (bookId) => {
         navigate(`/eye/${bookId}`);

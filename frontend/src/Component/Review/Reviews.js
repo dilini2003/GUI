@@ -2,6 +2,7 @@ import React from 'react';
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import {Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
+import './Review.css';
 import {Autoplay,} from 'swiper/modules';
 
 const Reviews = () => {

@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: "Poppins",sans-serif;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    transition: width none;
+    text-decoration: none;
+  }
+:root{
+    --green:#2eeea2;
+    --dark-color:#12c37c;
+    --black:#444;
+    --box:#f7f7f7;
+    --light-color:#666;
+    --border:0.1rem solid rgba(0,0,0,0.1);
+    --border-hover:0.1rem solid var(var(--black));
+    --box-shodow:0 0.5rem 1rem rgba(0, 0, 0, 0.208);
+  }
+  
+html{
+    font-size: 62.5%;
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+  }
+  html::-webkit-scrollbar{
+    width: 1 rem;
+  }
+  html::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  html::-webkit-scrollbar-thumb{
+    background: var(--black);
+  }
+  
+  /* arrivals */
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .category-button {
+    padding: 1.5rem 3rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .category-button.pink { background-color: var(--green); }
+  .category-button.green { background-color: var(--dark-color); }
+  .category-button.orange { background-color:var(--green); }
+  .category-button.blue { background-color: var(--dark-color); }
+  .category-button.purple { background-color: var(--green); }
+  .category-button.brown { background-color: var(--dark-color);}
+  
+  .category-button:hover {
+    transform: scale(1.3);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+  .arrivals .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .arrivals .grid .box {
+    width: 24rem;
+    background: var(--box);
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    border: var(--black);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40rem;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .arrivals .grid .box:hover {
+    border: var(--border-hover);
+  }
+  .arrivals .grid .box .image .hover-icons {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.3s ease-in-out;
+  }
+  .arrivals .grid .box:hover .image .hover-icons {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .arrivals .grid .box .image .hover-icons a {
+    width: 50px;
+    height: 50px;
+    color: var(--black);
+    background: linear-gradient(1deg, #eee 5%,#e7e4e4e6 5%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--black);
+    transition: background 0.3s ease;
+  }
+  
+  .arrivals .grid .box .image .hover-icons a:hover {
+    background: var(--green);
+  }
+  .arrivals .grid .box .image img{
+    width: auto;
+    height: 25rem;
+    object-fit: cover;
+  }
+  .arrivals .grid .box:hover .image{
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  .arrivals .grid .box .content {
+    background: #ffffff;
+    padding: 1.5rem;
+    flex: 0 1 auto;
+  }
+  .arrivals .grid .box .content h3{
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .arrivals .grid .box .content .price{
+    font-size: 2.2rem;
+    color: var(--black);
+    padding-bottom: 0.5rem;
+  }
+  .arrivals .grid .box .content .price span{
+    font-size: 1.5rem;
+    color: var(--light-color);
+    text-decoration: line-through;
+  }
+  .arrivals .grid .box .content .btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.9rem 3rem;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    background: var(--green);
+    border: 1px solid var(--border);
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+  
+  .arrivals .grid .box .content .btn:hover {
+    background: var(--dark-color);
+  }
+  
+  /* deal section*/
+  .deal{
+    background: var(--box);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .deal .content{
+    flex: 1 1 42rem;
+  }
+  .deal .content h3{
+    color: var(--green);
+    font-size: 2.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .deal .content h1{
+    color: var(--green);
+    font-size: 4rem;
+  }
+  .deal .content p{
+    padding: 1rem 0;
+    color: var(--light-color);
+    font-size: 1.4rem;
+    line-height: 2;
+  }
+  .deal .image{
+    flex: 1 1 42rem;
+  }
+  .deal .image img{
+    width: 100%;
+  }

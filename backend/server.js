@@ -43,8 +43,10 @@ db.run(`
 db.run(`
   CREATE TABLE IF NOT EXISTS cart (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
     book_id INTEGER,
     quantity INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (book_id) REFERENCES books (id)
   )
 `, () => {
@@ -55,7 +57,9 @@ db.run(`
   CREATE TABLE IF NOT EXISTS heart (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     book_id INTEGER,
+    user_id INTEGER,
     quantity INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (book_id) REFERENCES books (id)
   )
 `);
@@ -94,18 +98,18 @@ app.get('/books', (req, res) => {
 
 // Add book to cart
 app.post('/api/cart', (req, res) => {
-  const { book_id, quantity } = req.body;
+  const { book_id, quantity ,user_id} = req.body;
 
-  const checkSql = `SELECT * FROM cart WHERE book_id = ?`;
-  db.get(checkSql, [book_id], (err, row) => {
+  const checkSql = `SELECT * FROM cart WHERE book_id = ? AND user_id = ?`;
+  db.get(checkSql, [book_id, user_id], (err, row) => {
     if (err) {
       res.status(500).send({ error: 'Database error' });
       return;
     }
     if (row) {
       // Update quantity if book already exists
-      const updateSql = `UPDATE cart SET quantity = quantity + ? WHERE book_id = ?`;
-      db.run(updateSql, [quantity, book_id], function (err) {
+      const updateSql = `UPDATE cart SET quantity = quantity + ? WHERE book_id = ? AND user_id = ?`;
+      db.run(updateSql, [quantity, book_id, user_id], function (err) {
         if (err) {
           res.status(500).send({ error: 'Error updating cart' });
         } else {
@@ -114,8 +118,8 @@ app.post('/api/cart', (req, res) => {
       });
     } else {
       // Insert new book in cart
-      const insertSql = `INSERT INTO cart (book_id, quantity) VALUES (?, ?)`;
-      db.run(insertSql, [book_id, quantity], function (err) {
+      const insertSql = `INSERT INTO cart (user_id ,book_id, quantity) VALUES (?, ?, ?)`;
+      db.run(insertSql, [user_id, book_id, quantity], function (err) {
         if (err) {
           res.status(500).send({ error: 'Error adding to cart' });
         } else {
@@ -128,12 +132,14 @@ app.post('/api/cart', (req, res) => {
 
 // Get cart items
 app.get('/api/cart', (req, res) => {
+  const user_id = req.query.user_id; // Assuming user_id is passed as a query parameter
   const query = `
     SELECT cart.id, books.title, books.price, books.image_url, cart.quantity 
     FROM cart 
     JOIN books ON cart.book_id = books.id
+    WHERE cart.user_id = ?
   `;
-  db.all(query, [], (err, rows) => {
+  db.all(query, [user_id], (err, rows) => {
     if (err) {
       res.status(500).send({ error: 'Error fetching cart' });
     } else {
@@ -270,18 +276,18 @@ app.put('/api/update-profile/:id', (req, res) => {
 
 // Add book to Heart
 app.post('/api/heart', (req, res) => {
-  const { book_id, quantity } = req.body;
+  const { book_id, quantity,user_id } = req.body;
 
-  const checkSql = `SELECT * FROM heart WHERE book_id = ?`;
-  db.get(checkSql, [book_id], (err, row) => {
+  const checkSql = `SELECT * FROM heart WHERE book_id = ? AND user_id = ?`;
+  db.get(checkSql, [book_id, user_id], (err, row) => {
     if (err) {
       res.status(500).send({ error: 'Database error' });
       return;
     }
     if (row) {
       // Update quantity if book already exists
-      const updateSql = `UPDATE heart SET quantity = quantity + ? WHERE book_id = ?`;
-      db.run(updateSql, [quantity, book_id], function (err) {
+      const updateSql = `UPDATE heart SET quantity = quantity + ? WHERE book_id = ? AND user_id = ?`;
+      db.run(updateSql, [quantity, book_id,user_id ], function (err) {
         if (err) {
           res.status(500).send({ error: 'Error updating heart' });
         } else {
@@ -290,8 +296,8 @@ app.post('/api/heart', (req, res) => {
       });
     } else {
       // Insert new book in heart
-      const insertSql = `INSERT INTO heart (book_id, quantity) VALUES (?, ?)`;
-      db.run(insertSql, [book_id, quantity], function (err) {
+      const insertSql = `INSERT INTO heart (user_id,book_id, quantity) VALUES (?, ?, ?)`;
+      db.run(insertSql, [user_id,book_id, quantity], function (err) {
         if (err) {
           res.status(500).send({ error: 'Error adding to heart' });
         } else {
@@ -304,12 +310,14 @@ app.post('/api/heart', (req, res) => {
 
 // Get heart items
 app.get('/api/heart', (req, res) => {
+  const user_id = req.query.user_id; // Assuming user_id is passed as a query parameter
   const query = `
     SELECT heart.id, books.title, books.price, books.image_url
     FROM heart 
     JOIN books ON heart.book_id = books.id
+        WHERE heart.user_id = ?
   `;
-  db.all(query, [], (err, rows) => {
+  db.all(query, [user_id], (err, rows) => {
     if (err) {
       res.status(500).send({ error: 'Error fetching heart' });
     } else {

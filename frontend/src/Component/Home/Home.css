@@ -1,0 +1,119 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: "Poppins",sans-serif;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    transition: width none;
+    text-decoration: none;
+  }
+  
+  :root{
+    --green:#2eeea2;
+    --dark-color:#12c37c;
+    --black:#444;
+    --box:#f7f7f7;
+    --light-color:#666;
+    --border:0.1rem solid rgba(0,0,0,0.1);
+    --border-hover:0.1rem solid var(var(--black));
+    --box-shodow:0 0.5rem 1rem rgba(0, 0, 0, 0.208);
+  }
+  
+  html{
+    font-size: 62.5%;
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+  }
+  html::-webkit-scrollbar{
+    width: 1 rem;
+  }
+  html::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  html::-webkit-scrollbar-thumb{
+    background: var(--black);
+  }
+  /** Home */
+section{
+    padding:3rem 9%;
+  }
+  @media(max-width:991px){
+    section{
+      padding: 3rem 2rem;
+    }
+  }
+  .home{
+    background:url(./bannerbg.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+  .home .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .home .row .content{
+    flex: 1 1 42rem;
+  }
+  .home .row .content h3{
+    color: var(--black);
+    font-size: 4.5rem;
+  }
+  .home .row .content p{
+    color: var(--light-color);
+    font-size: 1.4rem;
+    line-height: 2;
+    padding: 1rem 0;
+  }
+  .home .swiper{
+    flex: 1 1 42rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .home .book-list .swiper-slide img{
+    height: 25rem;
+    object-fit: cover;
+  }
+  .home .book-list .swiper-slide:hover img{
+    transform: scale(0.9);
+  }
+  
+  @media(max-width: 768px){
+    .home .row .content{
+      text-align: center;
+    }
+    .home .row .content h3{
+      font-size: 3.5rem;
+    }
+  }
+  
+  /*icons section*/
+  .icons-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+  }
+  .icons-container .icons{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .icons-container .icons i{
+    font-size: 3.5rem;
+    color: var(--green);
+    padding: 2rem 0;
+  }
+  .icons-container .icons h3{
+    color: var(--light-color);
+    font-size: 2.2rem;
+    border-bottom: 0.5rem;
+  }
+  .icons-container .icons p{
+    color: var(--light-color);
+    font-size: 1.4rem;
+  }

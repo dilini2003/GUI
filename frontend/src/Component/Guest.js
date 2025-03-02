@@ -1,19 +1,19 @@
 import React from "react";
-import Home from "./Home";
-import Featured from "./Featured";
-import Arrivals from "./Arrivals";
-import Reviews from "./Reviews";
-import Blogs from "./Blogs";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import Home from "./Home/Home";
+import Featured from "./Featured/Featured";
+import Arrivals from "./Arrivals/Arrivals";
+import Reviews from "./Review/Reviews";
+import Blogs from "./Blogs/Blogs";
+import Footer from "./Footer/Footer";
+import Navbar from "./Navbar/Navbar";
 
 const Guest = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Home />
-      <Featured />
-      <Arrivals />
+      <Featured isLoggedIn={false}/>
+      <Arrivals isLoggedIn={false}/>
       <Reviews />
       <Blogs />
       <Footer />

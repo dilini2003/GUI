@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Autoplay } from "swiper/modules";
 import axios from "axios";
+import './Home.css';
 
 const Home = () => {
   const [books, setBooks] = useState([]);

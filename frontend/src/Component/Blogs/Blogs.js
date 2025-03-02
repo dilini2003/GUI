@@ -1,6 +1,7 @@
 import React from 'react'
 import {Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
+import './Blogs.css';
 import {Autoplay,} from 'swiper/modules';
 
 const Blogs = () => {

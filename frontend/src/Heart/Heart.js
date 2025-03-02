@@ -6,7 +6,8 @@ const Heart = () => {
   const [heartItems, setHeartItems] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/heart')
+    const userId = localStorage.getItem('userId'); // Get user ID from localStorage
+    axios.get(`http://localhost:5000/api/heart?user_id=${userId}`)
       .then(response => setHeartItems(response.data))
       .catch(error => console.error('Error fetching Heart:', error));
   }, []);

@@ -1,0 +1,96 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: "Poppins",sans-serif;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    transition: width none;
+    text-decoration: none;
+  }
+  
+  :root{
+    --green:#2eeea2;
+    --dark-color:#12c37c;
+    --black:#444;
+    --box:#f7f7f7;
+    --light-color:#666;
+    --border:0.1rem solid rgba(0,0,0,0.1);
+    --border-hover:0.1rem solid var(var(--black));
+    --box-shodow:0 0.5rem 1rem rgba(0, 0, 0, 0.208);
+  }
+  
+  html{
+    font-size: 62.5%;
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+  }
+  html::-webkit-scrollbar{
+    width: 1 rem;
+  }
+  html::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  html::-webkit-scrollbar-thumb{
+    background: var(--black);
+  }
+  /*footer section */
+.footer{
+    background: #323232;
+  }
+  .footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    padding: 1rem 0;
+  }
+  .footer .box-container .box h3{
+    font-size: 2.2rem;
+    color:#ffffff;
+    padding: 1rem 0;
+  }
+  .footer .box-container .box a{
+    display: block;
+    font-size: 1.4rem;
+    color: #e4e3e3f3;
+    padding: 1rem 0;
+  }
+  .footer .box-container .box a i{
+    color: var(--green);
+    padding-right: 0.5rem;
+  }
+  .footer .box-container .box a:hover i{
+    padding-right: 2rem;
+  }
+  .footer .box-container .box .map{
+    width: 100%;
+  }
+  .footer .share{
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .footer .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    color: #ffffff;
+    background: var(--green);
+    margin: 0 0.5rem 0.3rem;
+    border-radius: 50%;
+    padding: 1.2rem 1.5rem;
+  }
+  .footer .credit{
+    border-top: var(--border);
+    margin-top: 2rem;
+    padding: 0.1rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: center;
+  }
+  .footer .credit span{
+    color: var(--green);
+  }

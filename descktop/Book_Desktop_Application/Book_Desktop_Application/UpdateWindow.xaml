@@ -1,0 +1,109 @@
+﻿<Window x:Class="Book_Desktop_Application.UpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Book_Desktop_Application"
+        mc:Ignorable="d"
+        Title="UpdateWindow" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\DELL\Documents\GitHub\GUI\frontend\public\images\back5.jpg" Opacity="0.7"/>
+        </Grid.Background>
+        <TextBlock Grid.Row="0"
+Foreground="Black" Grid.Column="0" Grid.ColumnSpan="3"
+Padding="5"
+FontSize="50"  TextDecorations="Underline"
+FontWeight="Bold" 
+HorizontalAlignment="Center"
+VerticalAlignment="Center"
+Text="Update Book"/>
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button  
+FontWeight="Bold" 
+FontSize="18"
+Margin="20,10,20,0"
+HorizontalAlignment="Center" 
+VerticalAlignment="Center"
+Width="150" Click="Update"
+Height="66"  Cursor="Hand">
+                Update Book
+                <!--Designing the Button-->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="#4CAF50" CornerRadius="30" Padding="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <!--Hover property for Button-->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <!-- Default Button Style -->
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="Foreground" Value="White"/>
+
+                        <Style.Triggers>
+                            <!-- Trigger when mouse hovers over the button -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Change the text color on hover -->
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+            </Button>
+            <Button  
+FontWeight="Bold" 
+FontSize="18"
+Margin="20,10,20,5"
+HorizontalAlignment="Center" 
+VerticalAlignment="Center"
+Width="150" Click="back"
+Height="66"  Cursor="Hand">
+                Back
+                <!--Designing the Button-->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="#D32F2F" CornerRadius="30" Padding="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <!--Hover property for Button-->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <!-- Default Button Style -->
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="Foreground" Value="White"/>
+
+                        <Style.Triggers>
+                            <!-- Trigger when mouse hovers over the button -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Change the text color on hover -->
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+            </Button>
+        </StackPanel>
+        <DataGrid x:Name="bookGrid"
+Grid.Row="1" Grid.Column="1"
+AutoGenerateColumns="True"
+HorizontalAlignment="Stretch"
+VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>

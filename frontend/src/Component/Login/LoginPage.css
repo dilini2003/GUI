@@ -10,7 +10,7 @@
     overflow: hidden;
     background-image: 
       linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),
-      url('C:/Users/DELL/Documents/GitHub/GUI/frontend/public/images/blog04.jpg');
+      url('./blog04.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

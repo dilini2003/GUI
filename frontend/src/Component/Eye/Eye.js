@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './Eye.css';
 
 const Eye = () => {
   const { bookId } = useParams(); // Get book ID from URL
   const [book, setBook] = useState(null);
+    const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -23,13 +24,15 @@ const Eye = () => {
   return (
     <div className="eye-card">
       <div className="eye-card-content">
+      <h1>{book.title}</h1>
         <img src={book.image_url} alt={book.title} className="book-image" />
         <div className="book-details">
-          <h2>{book.title}</h2>
+          
           <p><strong>Author:</strong> {book.author}</p>
           <p><strong>Category:</strong> {book.category}</p>
           <p><strong>Price:</strong> Rs.{book.price}</p>
           <p><strong>Original Price:</strong> <s>Rs.{book.originalprice}</s></p>
+          <button onClick={() => navigate(-1)}>Go Back</button>
         </div>
       </div>
     </div>

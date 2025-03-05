@@ -5,14 +5,22 @@ import 'swiper/swiper-bundle.css';
 import {Autoplay } from 'swiper/modules';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { Alert, Snackbar } from '@mui/material';
 import './Featured.css';
+import Eye from '../Eye/Eye';
 
 const Featured = ({isLoggedIn} ) => {
     const [educationalBooks, setEducationalBooks] = useState([]);
   const [fictionBooks, setFictionBooks] = useState([]);
   const [fantasyBooks, setFantasyBooks] = useState([]);
   const [biographyBooks, setBiographyBooks] = useState([]);
+  const [selectedBook, setSelectedBook] = useState(null);
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const [severity, setSeverity] = useState("success");
+    
     const swiperOptionsTwo ={
         breakpoints:{
         0:{
@@ -56,22 +64,47 @@ const Featured = ({isLoggedIn} ) => {
         } else {
           const userId = localStorage.getItem('userId'); // Get user ID from localStorage
         axios.post('http://localhost:5000/api/cart', { book_id: bookId, quantity: 1, user_id: userId })
-          .then(response => alert(response.data.message))
-          .catch(error => console.error('Error adding to cart:', error));
-        }  };
+          .then(response => {setMessage("Book added to cart successfully!");
+            setSeverity("success");
+            setOpen(true);})
+          .catch(error => {
+            setMessage('Error adding book to cart.');
+            setSeverity("error");
+            setOpen(true); // Show error notification
+            console.error('Error adding to cart:', error);
+          });}};
       const addToHeart = (bookId) => {
         if (!isLoggedIn) {
           navigate('/login');
         } else {
           const userId = localStorage.getItem('userId'); // Get user ID from localStorage
         axios.post('http://localhost:5000/api/heart', { book_id: bookId, quantity: 1, user_id: userId})
-          .then(response => alert(response.data.message))
-          .catch(error => console.error('Error adding to heart:', error));
-       } };
+          .then(response => {
+            setMessage("Book added to favorites!");
+            setSeverity("success");
+            setOpen(true);
+          })
+          .catch(error => {
+            setMessage('Error adding book to favorites.');
+            setSeverity("error");
+            setOpen(true); // Show error notification
+            console.error('Error adding to heart:', error);
+          });
+      }
+    };
 
-      const showBookDetails = (bookId) => {
-        navigate(`/eye/${bookId}`);
-      };   
+       const viewBookDetails = (book) => {
+        setSelectedBook(book); 
+        setIsModalOpen(true); 
+      };
+
+      
+      const closeModal = () => {
+        setIsModalOpen(false); 
+      };
+      const handleCloseSnackbar = () => {
+        setOpen(false);
+      };
 
       const renderSwiper = (books) => (
         <Swiper
@@ -89,7 +122,7 @@ const Featured = ({isLoggedIn} ) => {
                         <div className="box">
                         <div className="icons">
                             <a onClick={() => addToHeart(book.id)}><FaHeart /></a>
-                            <a onClick={() => showBookDetails(book.id)}><FaEye /></a>
+                            <a onClick={() => viewBookDetails(book)}><FaEye /></a>
                         </div>
                         <div className="image">
                             <img src={book.image_url}
@@ -119,6 +152,9 @@ const Featured = ({isLoggedIn} ) => {
                 </div>
             </div>
         </section>
+        {isModalOpen && (
+        <Eye book={selectedBook} onClose={closeModal} />
+      )}
 
         <section className="newsletter">
             <form action="">
@@ -128,6 +164,20 @@ const Featured = ({isLoggedIn} ) => {
                 <a href='#n' type="submit" className='btn' >Subscribe</a>
             </form>
         </section>
+        <Snackbar
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleCloseSnackbar}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          <Alert
+            onClose={handleCloseSnackbar}
+            severity={severity}
+            className="custom-alert"  // Apply custom styles here
+          >
+            {message}
+          </Alert>
+        </Snackbar>
         </div>
     )
 }

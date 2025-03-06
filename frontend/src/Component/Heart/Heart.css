@@ -1,4 +1,3 @@
-
 .heart-page {
   display: flex;
   justify-content: center;
@@ -6,133 +5,134 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #f3f3f3, #e0e0e0);
   padding: 30px;
-  }
-  .heart-card {
-    background: #ffffff;
-    width: 60%;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease-in-out;
-    text-align: center;
-  }
-  .heart-card:hover {
-    transform: translateY(-5px);
 }
-  .heart-title {
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 25px;
-    color: #333;
-    text-transform: uppercase;
-    border-bottom: 3px solid #12c37c;
-    display: inline-block;
-    padding-bottom: 5px;
-  }
 
-  .empty-heart {
-    font-size: 1.8rem;  /* Increased size */
-    color: #777;
-    font-weight: 600;
-    margin-top: 30px;
-    text-align: center;
-  }
-  .heart-items {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  
-  .heart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px;
-    background: #fafafa;
-    border-radius: 10px;
-    border-left: 5px solid #12c37c;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
-    transition: 0.3s ease-in-out;
-  }
-  .heart-item:hover {
-    background: #f2f2f2;
+.heart-card {
+  background: #ffffff;
+  width: 60%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
 }
-  
-  .heart-item:last-child {
-    border-bottom: none;
-  }
-  
-  .heart-item-image {
-    width: 90px;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    transition: 0.3s ease-in-out;
-  }
-  .heart-item-image:hover{
-    transform: scale(1.05);
-    border-color: #ff6b6b;
-  }
-  
-  .heart-item-details {
-    flex: 1;
-    margin-left: 15px;
+
+.heart-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  text-transform: uppercase;
+  border-bottom: 3px solid #12c37c;
+  display: inline-block;
+  padding-bottom: 5px;
 }
-  
-  .heart-item-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .heart-item-price {
-    font-size: 1.3rem;
-    color: #555;
-    margin: 5px 0;
-  }
-  
-  .remove-button {
-    background: #ff4b4b;
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
+
+.empty-heart {
+  font-size: 1.8rem;
+  color: #777;
+  font-weight: 600;
+  margin-top: 30px;
+  text-align: center;
 }
-  
-  .remove-button:hover {
-    background: #ff3333;
+
+.heart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.heart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px;
+  background: #fafafa;
+  border-radius: 10px;
+  border-left: 5px solid #12c37c;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease-in-out;
+}
+
+.heart-item:hover {
+  background: #f2f2f2;
+}
+
+.heart-item:last-child {
+  border-bottom: none;
+}
+
+.heart-item-image {
+  width: 90px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  transition: 0.3s ease-in-out;
+}
+
+.heart-item-image:hover {
+  transform: scale(1.05);
+  border-color: #ff6b6b;
+}
+
+.heart-item-details {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.heart-item-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.heart-item-price {
+  font-size: 1.3rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.remove-button {
+  background: #ff4b4b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.remove-button:hover {
+  background: #ff3333;
+}
+
+
+
+
+.heart-items-item {
+  margin: 10px 0px;
+  color: black;
+}
+
+.heart-items-item img {
+  width: 50px;
+}
+
+.heart hr {
+  height: 1px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+.heart-items-item .cross {
+  cursor: pointer;
+}
+
+
+@media (max-width:750px) {
+  .heart-bottom {
+    flex-direction: column-reverse;
   }
-  
-  
-  
-  
-  .heart-items-item{
-    margin: 10px 0px;
-    color: black;
-  }
-  
-  .heart-items-item img{
-    width: 50px;
-  }
-  
-  .heart hr{
-    height: 1px;
-    background-color: #e2e2e2;
-    border: none;
-  }
-  
-  .heart-items-item .cross{
-    cursor: pointer;
-  }
-  
-  
-  @media (max-width:750px) {
-    .heart-bottom{
-        flex-direction: column-reverse;
-    }
-  }
-  
+}

@@ -12,8 +12,8 @@ const Guest = () => {
     <div>
       <Navbar />
       <Home />
-      <Featured isLoggedIn={false}/>
-      <Arrivals isLoggedIn={false}/>
+      <Featured isLoggedIn={false} />
+      <Arrivals isLoggedIn={false} />
       <Reviews />
       <Blogs />
       <Footer />

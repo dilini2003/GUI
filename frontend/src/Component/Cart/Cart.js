@@ -1,44 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './Cart.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./Cart.css";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId'); // Get user ID from localStorage
-    axios.get(`http://localhost:5000/api/cart?user_id=${userId}`)
-      .then(response => setCartItems(response.data))
-      .catch(error => console.error('Error fetching cart:', error));
+    const userId = localStorage.getItem("userId");
+    axios
+      .get(`http://localhost:5000/api/cart?user_id=${userId}`)
+      .then((response) => setCartItems(response.data))
+      .catch((error) => console.error("Error fetching cart:", error));
   }, []);
 
   const removeItem = (id) => {
-    axios.delete(`http://localhost:5000/api/cart/${id}`)
+    axios
+      .delete(`http://localhost:5000/api/cart/${id}`)
       .then(() => {
-        setCartItems(cartItems.filter(item => item.id !== id));
+        setCartItems(cartItems.filter((item) => item.id !== id));
       })
-      .catch(error => console.error('Error removing item:', error));
+      .catch((error) => console.error("Error removing item:", error));
   };
 
   const updateQuantity = (id, quantity) => {
-    axios.put(`http://localhost:5000/api/cart/${id}`, { quantity })
+    axios
+      .put(`http://localhost:5000/api/cart/${id}`, { quantity })
       .then(() => {
-        setCartItems(cartItems.map(item => 
-          item.id === id ? { ...item, quantity } : item
-        ));
+        setCartItems(
+          cartItems.map((item) =>
+            item.id === id ? { ...item, quantity } : item
+          )
+        );
       })
-      .catch(error => console.error('Error updating quantity:', error));
+      .catch((error) => console.error("Error updating quantity:", error));
   };
 
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
+
+  const navigate = useNavigate();
+
+  const handleaccont = () => {
+    navigate("/account");
   };
 
   return (
     <div className="cart-page">
       <div className="cart-card">
         <h2 className="cart-title">Your Cart</h2>
-        <hr/>
+        <button className="close-button" onClick={handleaccont}>
+          ×
+        </button>
+        <hr />
 
         {cartItems.length === 0 ? (
           <p className="empty-cart">Your cart is empty. Add some books!</p>
@@ -46,18 +64,29 @@ const Cart = () => {
           <div className="cart-items">
             {cartItems.map((item) => (
               <div key={item.id} className="cart-item">
-                <img src={item.image_url} alt={item.title} className="cart-item-image" />
+                <img
+                  src={item.image_url}
+                  alt={item.title}
+                  className="cart-item-image"
+                />
                 <div className="cart-item-details">
                   <p className="cart-item-name">{item.title}</p>
                   <p className="cart-item-price">Rs.{item.price}</p>
-                  <input 
-                    type="number" 
-                    value={item.quantity} 
+                  <input
+                    type="number"
+                    value={item.quantity}
                     min="1"
-                    onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
+                    onChange={(e) =>
+                      updateQuantity(item.id, parseInt(e.target.value))
+                    }
                   />
                 </div>
-                <button className="remove-button" onClick={() => removeItem(item.id)}>Remove</button>
+                <button
+                  className="remove-button"
+                  onClick={() => removeItem(item.id)}
+                >
+                  Remove
+                </button>
               </div>
             ))}
           </div>
@@ -70,20 +99,18 @@ const Cart = () => {
               <p>Subtotal</p>
               <p>Rs.{calculateTotal()}</p>
             </div>
-            <hr/>
+            <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
               <p>Rs.250</p>
             </div>
-            <hr/>
+            <hr />
             <div className="cart-total-details">
               <b>Total</b>
               <b>Rs.{calculateTotal() + 250}</b>
             </div>
-            <div className='button'>
-            <button className='cart-promocode-input'>
-              promocode
-            </button>
+            <div className="button">
+              <button className="cart-promocode-input">promocode</button>
             </div>
           </div>
         </div>

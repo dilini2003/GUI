@@ -1,85 +1,84 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
-import { Snackbar, Alert } from "@mui/material"; // Import MUI Snackbar and Alert components
+import { useNavigate } from "react-router-dom";
+import { Snackbar, Alert } from "@mui/material";
 
 const LoginPage = ({ setUserName }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState(""); // State for name (used in signup)
-  const [message, setMessage] = useState(""); // State for message display
-  const [severity, setSeverity] = useState("success"); // State for message severity (success, error)
-  const [open, setOpen] = useState(false); // State to control Snackbar visibility
-  const navigate = useNavigate(); // For navigation after successful login/signup
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [severity, setSeverity] = useState("success");
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
   };
 
-  // Handle form submission for login or signup
+  const handleLogin = () => {
+    navigate("/");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (isLogin) {
-      // Login logic
       const loginResponse = await fetch("http://localhost:5000/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-  
-      const loginData = await loginResponse.json(); // Parse the JSON response
-  
+
+      const loginData = await loginResponse.json();
+
       if (loginResponse.ok) {
         setMessage("Login successful!");
         setSeverity("success");
-  
+
         if (loginData.userName) {
-          localStorage.setItem("userName", loginData.userName); // Save userName to localStorage
+          localStorage.setItem("userName", loginData.userName);
           setUserName(loginData.userName);
         } else {
           console.error("User name is missing in the response.");
         }
 
         if (loginData.userId) {
-          localStorage.setItem("userId", loginData.userId); // Save user ID to localStorage
+          localStorage.setItem("userId", loginData.userId);
         } else {
           console.error("User ID is missing in the response.");
         }
-  
-        setOpen(true); // Show success notification
-        navigate("/account"); // Redirect to the account page
+
+        setOpen(true);
+        navigate("/account");
       } else {
-        setMessage(loginData.error); // Show error message if login fails
+        setMessage(loginData.error);
         setSeverity("error");
-        setOpen(true); // Show error notification
+        setOpen(true);
       }
     } else {
-      // Signup logic
       const signupResponse = await fetch("http://localhost:5000/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
       });
-  
+
       const signupData = await signupResponse.json();
-  
+
       if (signupResponse.ok) {
         setMessage("Account created successfully!");
         setSeverity("success");
-        setOpen(true); // Show success notification
-        setIsLogin(true); // Switch to login after successful signup
+        setOpen(true);
+        setIsLogin(true);
       } else {
-        setMessage(signupData.error); // Show error message if signup fails
+        setMessage(signupData.error);
         setSeverity("error");
-        setOpen(true); // Show error notification
+        setOpen(true);
       }
     }
   };
-  
 
-  // Handle closing the Snackbar
   const handleCloseSnackbar = () => {
     setOpen(false);
   };
@@ -87,6 +86,9 @@ const LoginPage = ({ setUserName }) => {
   return (
     <div className="login-page">
       <div className="login-card">
+        <button className="close-button" onClick={handleLogin}>
+          ×
+        </button>
         <h2 className="login-title">
           {isLogin ? "Login to Bookly" : "Create Your Account"}
         </h2>
@@ -136,7 +138,6 @@ const LoginPage = ({ setUserName }) => {
         </p>
       </div>
 
-      {/* MUI Snackbar for notifications */}
       <Snackbar
         open={open}
         autoHideDuration={6000}

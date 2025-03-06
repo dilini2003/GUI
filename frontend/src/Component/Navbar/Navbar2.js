@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   FaBook,
   FaHeart,
@@ -11,16 +11,20 @@ import {
   FaReadme,
 } from "react-icons/fa";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId'); // Get user ID from localStorage
-    axios.get(`http://localhost:5000/api/cart?user_id=${userId}`)
+    const userId = localStorage.getItem("userId");
+    axios
+      .get(`http://localhost:5000/api/cart?user_id=${userId}`)
       .then((response) => {
-        // Calculate total number of items in the cart
-        const totalItems = response.data.reduce((acc, item) => acc + item.quantity, 0);
+        const totalItems = response.data.reduce(
+          (acc, item) => acc + item.quantity,
+          0
+        );
         setCartCount(totalItems);
       })
       .catch((error) => console.error("Error fetching cart items:", error));
@@ -29,15 +33,24 @@ const Navbar = () => {
   const [heartCount, setHeartCount] = useState(0);
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId'); // Get user ID from localStorage
-    axios.get(`http://localhost:5000/api/heart?user_id=${userId}`)
+    const userId = localStorage.getItem("userId");
+    axios
+      .get(`http://localhost:5000/api/heart?user_id=${userId}`)
       .then((response) => {
-        // Calculate total number of items in the cart
-        const totalItem = response.data.reduce((acc, item) => acc + (item.quantity||1), 0);
+        const totalItem = response.data.reduce(
+          (acc, item) => acc + (item.quantity || 1),
+          0
+        );
         setHeartCount(totalItem);
       })
       .catch((error) => console.error("Error fetching heart items:", error));
   }, []);
+
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <div>
@@ -54,14 +67,19 @@ const Navbar = () => {
             </label>
           </form>
           <div className="icons">
-            <a href="/heart" id='heart' className="user-btn">
+            <a href="/heart" id="heart" className="user-btn">
               <FaHeart />
-              {heartCount > 0 && <span className="cart-count">{heartCount}</span>}
+              {heartCount > 0 && (
+                <span className="cart-count">{heartCount}</span>
+              )}
             </a>
             <a href="/cart" id="cart" className="user-btn">
               <FaShoppingCart />
               {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
             </a>
+            <button className="logout" onClick={handleLogin}>
+              <span>Logout</span>
+            </button>
           </div>
         </div>
 
@@ -81,19 +99,18 @@ const Navbar = () => {
           <FaHome />
         </a>
         <a href="#Featured">
-        <FaReadme/>
+          <FaReadme />
         </a>
         <a href="#Arrivals">
-        <FaBook />
+          <FaBook />
         </a>
         <a href="#Reviews">
           <FaTags />
         </a>
         <a href="#Blogs">
-        <FaStore/>
+          <FaStore />
         </a>
       </div>
-
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import './Navbar.css';
+import "./Navbar.css";
 import {
   FaBook,
   FaHeart,
@@ -16,9 +16,8 @@ import { useNavigate, Link } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const handleLogin = () => {
-    navigate("/Login"); // Navigate to the Login page
+    navigate("/Login");
   };
-
 
   return (
     <div>
@@ -35,7 +34,7 @@ const Navbar = () => {
             </label>
           </form>
           <div className="icons">
-            <a onClick={handleLogin} id='heart' className="user-btn">
+            <a onClick={handleLogin} id="heart" className="user-btn">
               <FaHeart />
             </a>
             <a onClick={handleLogin} id="cart" className="user-btn">
@@ -63,7 +62,7 @@ const Navbar = () => {
           <FaHome />
         </a>
         <a href="#Featured">
-          <FaReadme/>
+          <FaReadme />
         </a>
         <a href="#Arrivals">
           <FaBook />
@@ -75,7 +74,6 @@ const Navbar = () => {
           <FaStore />
         </a>
       </div>
-
     </div>
   );
 };

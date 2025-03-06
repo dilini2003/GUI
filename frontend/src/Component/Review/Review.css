@@ -1,58 +1,99 @@
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
   border: none;
-  font-family: "Poppins",sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: capitalize;
   transition: all 0.2s linear;
   transition: width none;
   text-decoration: none;
 }
 
-:root{
-  --green:#2eeea2;
-  --dark-color:#12c37c;
-  --black:#444;
-  --box:#f7f7f7;
-  --light-color:#666;
-  --border:0.1rem solid rgba(0,0,0,0.1);
-  --border-hover:0.1rem solid var(var(--black));
-  --box-shodow:0 0.5rem 1rem rgba(0, 0, 0, 0.208);
-  --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Hover shadow */
-  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Card shadow */
-
-}
-
-html{
+html {
   font-size: 62.5%;
   scroll-padding-top: 5rem;
   scroll-behavior: smooth;
 }
-html::-webkit-scrollbar{
+
+html::-webkit-scrollbar {
   width: 1 rem;
 }
-html::-webkit-scrollbar-track{
+
+html::-webkit-scrollbar-track {
   background: transparent;
 }
-html::-webkit-scrollbar-thumb{
+
+html::-webkit-scrollbar-thumb {
   background: var(--black);
 }
 
+:root {
+  --green: #2eeea2;
+  --dark-color: #12c37c;
+  --black: #444;
+  --box: #f7f7f7;
+  --light-color: #666;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  --border-hover: 0.1rem solid var(var(--black));
+  --box-shodow: 0 0.5rem 1rem rgba(0, 0, 0, 0.208);
+  --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
 .reviews {
-  padding: 5rem 0 5rem;
+  padding: 50px 10%;
+}
+
+.reviews .heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+  padding: 10px;
   background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-/* reviews section*/
-.reviews .reviews-slider{
-padding-top: 2rem;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
-gap: 2rem;
+
+.reviews .heading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 0.01rem;
+  background: rgba(0, 0, 0, 0.235);
+  z-index: -1;
 }
-.reviews .reviews-slider .box{
+
+.reviews .heading span {
+  font-size: 3rem;
+  padding: 3rem 2rem;
+  color: var(--black);
+  border: var(--border);
+  background: #ffffff;
+}
+
+.reviews .heading:hover {
+  background-color: #999;
+  color: white;
+}
+
+.reviews .reviews-slider {
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.reviews .reviews-slider .box {
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 2rem;
@@ -62,40 +103,46 @@ gap: 2rem;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.reviews .reviews-slider .box:hover{
-  transform: translateY(-5px); /* Card Lift on Hover */
+
+.reviews .reviews-slider .box:hover {
+  transform: translateY(-5px);
   box-shadow: var(--hover-shadow);
 }
-.reviews .reviews-slider .box h3{
+
+.reviews .reviews-slider .box h3 {
   color: var(--black);
   font-size: 2.2rem;
   padding: 1rem 0;
   line-height: 2;
 }
-.reviews .reviews-slider .box img{
+
+.reviews .reviews-slider .box img {
   width: 150px;
-height: 200px;
-object-fit: cover;
-border-radius: 1rem;
-margin-bottom: 1.5rem;
-margin-bottom: 1.5rem;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
-.reviews .reviews-slider .box p{
+
+.reviews .reviews-slider .box p {
   color: var(--light-color);
   font-size: 1.4rem;
   padding: 1rem 0;
   line-height: 2;
-  max-height: 7rem; 
+  max-height: 7rem;
   overflow-y: auto;
-  scrollbar-width: thin; 
-  scrollbar-color: #aaa #f0f0f0; 
+  scrollbar-width: thin;
+  scrollbar-color: #aaa #f0f0f0;
 }
-.reviews .reviews-slider .box .stars i{
+
+.reviews .reviews-slider .box .stars i {
   font-size: 1.7rem;
   color: var(--green);
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   color: var(--green);
   font-size: 3rem;
   background-color: transparent;
@@ -106,12 +153,12 @@ margin-bottom: 1.5rem;
   transition: background-color 0.2s ease;
 }
 
-.swiper-button-next:hover, .swiper-button-prev:hover {
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
   background-color: var(--green);
   color: white;
 }
 
-/* Responsive Design */
 @media (max-width: 991px) {
   .reviews .heading {
     font-size: 2.6rem;

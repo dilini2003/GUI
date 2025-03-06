@@ -7,12 +7,12 @@ import Eye from "../Eye/Eye";
 import { Snackbar, Alert } from "@mui/material";
 
 const categories = [
-  { id: "new", label: "New Arrivals", color: "pink" },
+  { id: "new", label: "New Arrivals", color: "dgreen" },
   { id: "children", label: "Children's Books", color: "green" },
-  { id: "educational", label: "Educational Books", color: "orange" },
-  { id: "fiction", label: "Fiction", color: "blue" },
-  { id: "fantasy", label: "Fantasy", color: "purple" },
-  { id: "biography", label: "Biography", color: "brown" },
+  { id: "educational", label: "Educational Books", color: "dgreen" },
+  { id: "fiction", label: "Fiction", color: "green" },
+  { id: "fantasy", label: "Fantasy", color: "dgreen" },
+  { id: "biography", label: "Biography", color: "green" },
 ];
 
 const Arrivals = ({ isLoggedIn }) => {
@@ -52,7 +52,7 @@ const Arrivals = ({ isLoggedIn }) => {
         .catch((error) => {
           setMessage("Error adding book to cart.");
           setSeverity("error");
-          setOpen(true); // Show error notification
+          setOpen(true);
           console.error("Error adding to cart:", error);
         });
     }
@@ -76,7 +76,7 @@ const Arrivals = ({ isLoggedIn }) => {
         .catch((error) => {
           setMessage("Error adding book to favorites.");
           setSeverity("error");
-          setOpen(true); // Show error notification
+          setOpen(true);
           console.error("Error adding to heart:", error);
         });
     }
@@ -191,7 +191,7 @@ const Arrivals = ({ isLoggedIn }) => {
         <Alert
           onClose={handleCloseSnackbar}
           severity={severity}
-          className="custom-alert" // Apply custom styles here
+          className="custom-alert"
         >
           {message}
         </Alert>

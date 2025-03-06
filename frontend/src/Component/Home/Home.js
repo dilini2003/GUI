@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Autoplay } from "swiper/modules";
 import axios from "axios";
-import './Home.css';
+import "./Home.css";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -41,7 +41,9 @@ const Home = () => {
           <div className="content">
             <h3>Welcome Bookly!</h3>
             <p>
-            Explore a wide collection of books across various genres, from fiction to self-help. Discover your next great read and enjoy a seamless shopping experience with us. Happy reading!
+              Explore a wide collection of books across various genres, from
+              fiction to self-help. Discover your next great read and enjoy a
+              seamless shopping experience with us. Happy reading!
             </p>
             <a href="#Arrivals" className="btn">
               shop now
@@ -63,12 +65,8 @@ const Home = () => {
               {...swiperOptionsOne}
             >
               {books.map((book) => (
-                
                 <SwiperSlide key={book.id} className="swiper-slide">
-                  <img
-                    src={book.image_url}
-                    alt={book.title}
-                  />
+                  <img src={book.image_url} alt={book.title} />
                 </SwiperSlide>
               ))}
             </Swiper>

@@ -62,7 +62,7 @@ const [open, setOpen] = useState(false);
         if (!isLoggedIn) {
           navigate('/login');
         } else {
-          const userId = localStorage.getItem('userId'); // Get user ID from localStorage
+          const userId = localStorage.getItem('userId'); 
         axios.post('http://localhost:5000/api/cart', { book_id: bookId, quantity: 1, user_id: userId })
           .then(response => {setMessage("Book added to cart successfully!");
             setSeverity("success");
@@ -70,14 +70,14 @@ const [open, setOpen] = useState(false);
           .catch(error => {
             setMessage('Error adding book to cart.');
             setSeverity("error");
-            setOpen(true); // Show error notification
+            setOpen(true);
             console.error('Error adding to cart:', error);
           });}};
       const addToHeart = (bookId) => {
         if (!isLoggedIn) {
           navigate('/login');
         } else {
-          const userId = localStorage.getItem('userId'); // Get user ID from localStorage
+          const userId = localStorage.getItem('userId'); 
         axios.post('http://localhost:5000/api/heart', { book_id: bookId, quantity: 1, user_id: userId})
           .then(response => {
             setMessage("Book added to favorites!");
@@ -87,7 +87,7 @@ const [open, setOpen] = useState(false);
           .catch(error => {
             setMessage('Error adding book to favorites.');
             setSeverity("error");
-            setOpen(true); // Show error notification
+            setOpen(true); 
             console.error('Error adding to heart:', error);
           });
       }
@@ -173,7 +173,7 @@ const [open, setOpen] = useState(false);
           <Alert
             onClose={handleCloseSnackbar}
             severity={severity}
-            className="custom-alert"  // Apply custom styles here
+            className="custom-alert"
           >
             {message}
           </Alert>

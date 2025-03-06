@@ -1,29 +1,42 @@
-/* General Page Styling */
 .cart-page {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     background: linear-gradient(135deg, #f3f3f3, #e0e0e0);
     padding: 30px;
 }
 
-/* Main Cart Container */
 .cart-card {
     background: #ffffff;
     width: 60%;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease-in-out;
     text-align: center;
 }
 
-.cart-card:hover {
-    transform: translateY(-5px);
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: #666;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Title Styling */
+.close-button:hover {
+    background: #444;
+    transform: scale(1.1);
+}
+
 .cart-card .cart-title {
     font-size: 2rem;
     font-weight: bold;
@@ -35,22 +48,21 @@
     display: inline-block;
     padding-bottom: 5px;
 }
+
 .empty-cart {
-  font-size: 1.8rem;  /* Increased size */
-  color: #777;
-  font-weight: 600;
-  margin-top: 30px;
-  text-align: center;
+    font-size: 1.8rem;
+    color: #777;
+    font-weight: 600;
+    margin-top: 30px;
+    text-align: center;
 }
 
-/* Cart Items */
 .cart-items {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
-/* Individual Cart Item */
 .cart-item {
     display: flex;
     align-items: center;
@@ -67,7 +79,6 @@
     background: #f2f2f2;
 }
 
-/* Product Image */
 .cart-item-image {
     width: 90px;
     height: 110px;
@@ -82,7 +93,6 @@
     border-color: #ff6b6b;
 }
 
-/* Product Details */
 .cart-item-details {
     flex: 1;
     margin-left: 15px;
@@ -100,7 +110,6 @@
     margin: 5px 0;
 }
 
-/* Quantity Input */
 .cart-item input {
     width: 55px;
     padding: 6px;
@@ -116,7 +125,6 @@
     border-color: #000000;
 }
 
-/* Remove Button */
 .remove-button {
     background: #ff4b4b;
     color: white;
@@ -125,19 +133,16 @@
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    transition: background 0.3s;
 }
 
 .remove-button:hover {
     background: #620808;
 }
 
-/* Cart Bottom Section */
 .cart-bottom {
     margin-top: 30px;
 }
 
-/* Cart Totals */
 .cart-total {
     padding: 20px;
     background: #fcfcfc;
@@ -156,7 +161,6 @@
     padding-bottom: 5px;
 }
 
-/* Total Details */
 .cart-total-details {
     display: flex;
     justify-content: space-between;
@@ -175,7 +179,6 @@
     font-size: 2rem;
 }
 
-/* Promo Code Button */
 .button {
     text-align: center;
     margin-top: 20px;
@@ -199,7 +202,6 @@
     transform: scale(1.05);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .cart-card {
         width: 90%;
